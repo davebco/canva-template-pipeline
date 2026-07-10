@@ -41,9 +41,7 @@
   .masthead {
     position: absolute; top: 44px; left: 72px; right: 72px;
     display: flex; justify-content: space-between; align-items: baseline;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--rule);
-  }
+    }
   .masthead .mh-left {
     font-size: 8.5px; font-weight: 700; letter-spacing: .3em;
     text-transform: uppercase; color: var(--taupe);
@@ -52,6 +50,7 @@
     font-size: 8.5px; font-weight: 400; letter-spacing: .3em;
     text-transform: uppercase; color: var(--terra);
   }
+  .mh-rule { position: absolute; top: 66px; left: 72px; right: 72px; height: 1px; background: var(--rule); }
   .eyebrow {
     font-size: 10px; font-weight: 700; letter-spacing: .3em;
     text-transform: uppercase; color: var(--terra);
@@ -112,8 +111,8 @@
   .cover-year {
     display: inline-block; font-size: 9.5px; font-weight: 700;
     letter-spacing: .32em; text-transform: uppercase; color: var(--terra);
-    border-top: 1px solid var(--rule); padding-top: 14px;
   }
+  .cover-rule { width: 44px; height: 1px; background: var(--rule); margin: 0 auto 14px; }
 
   /* ---------- p2 welcome ---------- */
   .letter-wrap { position: absolute; top: 200px; left: 183px; width: 450px; }
@@ -138,10 +137,10 @@
   .loves-label { font-size: 11px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; }
   .about-quote {
     position: absolute; left: 72px; right: 72px; bottom: 96px;
-    border-top: 1px solid var(--rule); padding-top: 26px;
     font-family: 'Cormorant Garamond', serif; font-style: italic;
     font-size: 19px; line-height: 1.5; color: var(--ink); text-align: center;
   }
+  .aq-rule { width: 100%; height: 1px; background: var(--rule); margin-bottom: 26px; }
 
   /* ---------- p4 experience timeline ---------- */
   .steps { position: absolute; top: 250px; left: 152px; right: 132px; }
@@ -166,7 +165,7 @@
   }
   .invest-open em { font-style: italic; color: var(--terra); }
   .invest-panel {
-    border: 1px solid var(--terra); padding: 38px 44px; margin: 40px 0 30px;
+    background: var(--sand); padding: 38px 44px; margin: 40px 0 30px;
   }
   .invest-panel-title {
     font-size: 10px; font-weight: 700; letter-spacing: .3em;
@@ -223,7 +222,7 @@
   .thanks-title em { font-style: italic; color: var(--terra); }
   .thanks-body { max-width: 350px; font-size: 12.5px; line-height: 1.85; margin-bottom: 40px; }
   .brandmark {
-    width: 74px; height: 74px; border: 1px solid var(--terra); border-radius: 50%;
+    width: 74px; height: 74px; background: var(--sand); border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
   }
   .brandmark span {
@@ -246,6 +245,7 @@
     <div class="cover-logo">· [logo] ·</div>
     <div class="cover-title">Client <em>Welcome</em> Guide</div>
     <div class="cover-tag">Your journey begins here</div>
+    <div class="cover-rule"></div>
     <div class="cover-year">[Year]</div>
   </div>
 </section>
@@ -256,6 +256,7 @@
     <span class="mh-left">[Studio / Brand Name]</span>
     <span class="mh-right">Welcome · 02</span>
   </div>
+  <div class="mh-rule"></div>
   <div class="letter-wrap">
     <div class="eyebrow">A Note From Your Photographer</div>
     <div class="big-hello">A warm <em>hello</em></div>
@@ -276,6 +277,7 @@
     <span class="mh-left">[Studio / Brand Name]</span>
     <span class="mh-right">About · 03</span>
   </div>
+  <div class="mh-rule"></div>
   <div class="about-grid">
     <div>
       <div class="about-photo placeholder"><span>Headshot</span></div>
@@ -296,7 +298,7 @@
       </div>
     </div>
   </div>
-  <div class="about-quote">“[e.g., I believe the best moments happen when we're comfortable and laughing together.]”</div>
+  <div class="about-quote"><div class="aq-rule"></div>“[e.g., I believe the best moments happen when we're comfortable and laughing together.]”</div>
 </section>
 
 <!-- ============ PAGE 4 · THE EXPERIENCE ============ -->
@@ -305,6 +307,7 @@
     <span class="mh-left">[Studio / Brand Name]</span>
     <span class="mh-right">The Experience · 04</span>
   </div>
+  <div class="mh-rule"></div>
   <div style="position: absolute; top: 132px; left: 152px;">
     <div class="eyebrow">What to Expect</div>
     <h1 class="display">The <em>experience</em></h1>
@@ -355,6 +358,7 @@
     <span class="mh-left">[Studio / Brand Name]</span>
     <span class="mh-right">Investment · 05</span>
   </div>
+  <div class="mh-rule"></div>
   <div style="position: absolute; top: 210px; left: 172px; width: 472px;">
     <div class="eyebrow">Investment Overview</div>
     <div class="invest-open">Sessions start at <em>[PRICE]</em></div>
@@ -379,6 +383,7 @@
     <span class="mh-left">[Studio / Brand Name]</span>
     <span class="mh-right">FAQ · 06</span>
   </div>
+  <div class="mh-rule"></div>
   <div class="faq-wrap">
     <div class="eyebrow">Good to Know</div>
     <h1 class="display">Frequently asked <em>questions</em></h1>
@@ -407,6 +412,7 @@
     <span class="mh-left">[Studio / Brand Name]</span>
     <span class="mh-right">FAQ · 07</span>
   </div>
+  <div class="mh-rule"></div>
   <div class="faq-wrap">
     <div class="eyebrow">Good to Know</div>
     <h1 class="display">Questions, <em>continued</em></h1>
@@ -436,6 +442,7 @@
     <span class="mh-left">[Studio / Brand Name]</span>
     <span class="mh-right">Next Steps · 08</span>
   </div>
+  <div class="mh-rule"></div>
   <div style="position: absolute; top: 176px; left: 172px;">
     <div class="eyebrow">How to Book</div>
     <h1 class="display">Ready to capture your <em>beautiful moments?</em></h1>
