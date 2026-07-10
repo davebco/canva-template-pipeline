@@ -1,0 +1,479 @@
+<!-- Listing 1 — Client Welcome Guide / Magazine · Model A design master
+     Brand tokens (locked): ivory #F7F3EE · charcoal #3E3A34 · terracotta #C0876B
+     Cormorant Garamond (display) + Lato (body) — both free Canva fonts
+     Pages annotated with data-document-role="page" for Canva import-design-from-url -->
+<meta charset="utf-8">
+<title>Client Welcome Guide — Listing 1 Master</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F7F3EE;
+    --ink: #3E3A34;
+    --terra: #C0876B;
+    --taupe: #A39A8D;
+    --sand: #EAE3D9;
+    --rule: #E0D8CC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #DED8CF; }
+  .page {
+    width: 816px;
+    height: 1056px;
+    background: var(--ivory);
+    position: relative;
+    overflow: hidden;
+    margin: 24px auto;
+    font-family: 'Lato', sans-serif;
+    color: var(--ink);
+  }
+  @media print {
+    html, body { background: none; }
+    .page { margin: 0; page-break-after: always; }
+  }
+  @page { size: 8.5in 11in; margin: 0; }
+
+  /* ---------- shared furniture ---------- */
+  .masthead {
+    position: absolute; top: 44px; left: 72px; right: 72px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .masthead .mh-left {
+    font-size: 8.5px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--taupe);
+  }
+  .masthead .mh-right {
+    font-size: 8.5px; font-weight: 400; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra);
+  }
+  .eyebrow {
+    font-size: 10px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra);
+    margin-bottom: 18px;
+  }
+  h1.display {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500; font-size: 46px; line-height: 1.12;
+    letter-spacing: .01em; margin-bottom: 26px;
+  }
+  h1.display em {
+    font-style: italic; font-weight: 500; color: var(--terra);
+  }
+  .body-col { max-width: 450px; font-size: 12.5px; font-weight: 400; line-height: 1.85; }
+  .body-col p { margin-bottom: 14px; }
+  .rule-terra { width: 44px; height: 1px; background: var(--terra); margin: 26px 0; }
+  .placeholder {
+    background: var(--sand);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .placeholder span {
+    font-size: 9px; font-weight: 700; letter-spacing: .35em;
+    text-transform: uppercase; color: var(--taupe);
+  }
+  .sig {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 22px; color: var(--ink);
+  }
+  .sig-name {
+    font-size: 11px; font-weight: 700; letter-spacing: .22em;
+    text-transform: uppercase; margin-top: 6px;
+  }
+
+  /* ---------- p1 cover ---------- */
+  .cover-hero { position: absolute; inset: 0; }
+  .cover-panel {
+    position: absolute; left: 118px; right: 118px; bottom: 96px;
+    background: var(--ivory); padding: 54px 60px 50px;
+    text-align: center;
+  }
+  .cover-studio {
+    font-size: 11px; font-weight: 700; letter-spacing: .42em;
+    text-transform: uppercase; color: var(--ink); margin-bottom: 6px;
+  }
+  .cover-logo {
+    font-size: 8px; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--taupe); margin-bottom: 30px;
+  }
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 500;
+    font-size: 58px; line-height: 1.08; margin-bottom: 24px;
+  }
+  .cover-title em { font-style: italic; color: var(--terra); }
+  .cover-tag {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 17px; color: var(--taupe); margin-bottom: 26px;
+  }
+  .cover-year {
+    display: inline-block; font-size: 9.5px; font-weight: 700;
+    letter-spacing: .32em; text-transform: uppercase; color: var(--terra);
+    border-top: 1px solid var(--rule); padding-top: 14px;
+  }
+
+  /* ---------- p2 welcome ---------- */
+  .letter-wrap { position: absolute; top: 200px; left: 183px; width: 450px; }
+  .letter-wrap .big-hello {
+    font-family: 'Cormorant Garamond', serif; font-weight: 500;
+    font-size: 72px; line-height: 1; margin-bottom: 40px;
+  }
+  .letter-wrap .big-hello em { font-style: italic; color: var(--terra); }
+  .welcome-photo { position: absolute; left: 183px; bottom: 120px; width: 450px; height: 210px; }
+
+  /* ---------- p3 about ---------- */
+  .about-grid { position: absolute; top: 170px; left: 72px; right: 72px; display: flex; gap: 52px; }
+  .about-photo { width: 280px; height: 520px; flex: none; }
+  .about-caption {
+    margin-top: 12px; text-align: center;
+    font-size: 8.5px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--taupe);
+  }
+  .loves { margin-top: 44px; }
+  .loves-item { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .loves-dot { width: 5px; height: 5px; background: var(--terra); border-radius: 50%; flex: none; }
+  .loves-label { font-size: 11px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; }
+  .about-quote {
+    position: absolute; left: 72px; right: 72px; bottom: 96px;
+    border-top: 1px solid var(--rule); padding-top: 26px;
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 19px; line-height: 1.5; color: var(--ink); text-align: center;
+  }
+
+  /* ---------- p4 experience timeline ---------- */
+  .steps { position: absolute; top: 250px; left: 152px; right: 132px; }
+  .step { display: flex; gap: 34px; padding: 0 0 40px 0; }
+  .step-numwrap { width: 54px; flex: none; text-align: center; }
+  .step-num {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 34px; color: var(--terra); line-height: 1;
+  }
+  .step-body { padding-top: 4px; }
+  .exp-photo { position: absolute; left: 72px; right: 72px; bottom: 96px; height: 200px; }
+  .step-title {
+    font-size: 11.5px; font-weight: 700; letter-spacing: .22em;
+    text-transform: uppercase; margin-bottom: 7px;
+  }
+  .step-text { font-size: 12px; line-height: 1.75; max-width: 430px; }
+
+  /* ---------- p5 investment ---------- */
+  .invest-open {
+    font-family: 'Cormorant Garamond', serif; font-weight: 500;
+    font-size: 40px; line-height: 1.2;
+  }
+  .invest-open em { font-style: italic; color: var(--terra); }
+  .invest-panel {
+    border: 1px solid var(--terra); padding: 38px 44px; margin: 40px 0 30px;
+  }
+  .invest-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra); margin-bottom: 20px;
+  }
+  .inc-item { display: flex; gap: 14px; align-items: baseline; margin-bottom: 12px; }
+  .inc-dash { width: 16px; height: 1px; background: var(--terra); flex: none; transform: translateY(-4px); }
+  .inc-text { font-size: 12.5px; line-height: 1.6; }
+  .fineprint {
+    font-size: 10.5px; line-height: 1.8; color: var(--taupe); font-style: italic;
+  }
+
+  /* ---------- p6-7 faq ---------- */
+  .faq-item { margin-bottom: 44px; max-width: 470px; }
+  .faq-q {
+    font-family: 'Cormorant Garamond', serif; font-weight: 600;
+    font-size: 21px; margin-bottom: 9px;
+  }
+  .faq-a { font-size: 12px; line-height: 1.75; color: var(--ink); }
+  .faq-wrap { position: absolute; top: 176px; left: 172px; }
+  .faq-continued {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 15px; color: var(--taupe); margin-top: 4px;
+  }
+
+  /* ---------- p8 booking ---------- */
+  .book-step { display: flex; gap: 30px; margin-bottom: 30px; max-width: 470px; }
+  .book-num {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 30px; color: var(--terra); width: 34px; flex: none; line-height: 1.1;
+  }
+  .book-title {
+    font-size: 11.5px; font-weight: 700; letter-spacing: .2em;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .book-text { font-size: 12px; line-height: 1.7; }
+  .connect-panel {
+    position: absolute; left: 72px; right: 72px; bottom: 96px;
+    background: var(--sand); padding: 34px 44px; text-align: center;
+  }
+  .connect-title {
+    font-size: 10px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra); margin-bottom: 14px;
+  }
+  .connect-line { font-size: 11.5px; letter-spacing: .06em; line-height: 2; }
+  .connect-line b { font-weight: 700; }
+
+  /* ---------- p9 thank you ---------- */
+  .thanks-wrap { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .thanks-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 500;
+    font-size: 74px; line-height: 1; margin: 34px 0 26px;
+  }
+  .thanks-title em { font-style: italic; color: var(--terra); }
+  .thanks-body { max-width: 350px; font-size: 12.5px; line-height: 1.85; margin-bottom: 40px; }
+  .brandmark {
+    width: 74px; height: 74px; border: 1px solid var(--terra); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .brandmark span {
+    font-size: 8px; font-weight: 700; letter-spacing: .28em;
+    text-transform: uppercase; color: var(--taupe);
+  }
+  .disclaimer {
+    position: absolute; left: 72px; right: 72px; bottom: 40px;
+    font-size: 7.5px; line-height: 1.6; color: var(--taupe); text-align: center;
+  }
+</style>
+
+<!-- ============ PAGE 1 · COVER ============ -->
+<section class="page" data-document-role="page" data-label="Cover">
+  <div class="cover-hero placeholder"><span>Hero Photo — Full Bleed</span></div>
+  <div class="cover-panel">
+    <div class="cover-studio">[Studio / Brand Name]</div>
+    <div class="cover-logo">· [logo] ·</div>
+    <div class="cover-title">Client <em>Welcome</em> Guide</div>
+    <div class="cover-tag">Your journey begins here</div>
+    <div class="cover-year">[Year]</div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 · WELCOME ============ -->
+<section class="page" data-document-role="page" data-label="Welcome">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Welcome · 02</span>
+  </div>
+  <div class="letter-wrap">
+    <div class="eyebrow">A Note From Your Photographer</div>
+    <div class="big-hello">A warm <em>hello</em></div>
+    <div class="body-col">
+      <p>Thank you so much for reaching out! I'm so excited about the possibility of capturing your precious memories.</p>
+      <p>My promise to you is a relaxed, guided, and enjoyable photography experience from start to finish.</p>
+    </div>
+    <div class="rule-terra"></div>
+    <div class="sig">Warmly,</div>
+    <div class="sig-name">[Photographer Name]</div>
+  </div>
+  <div class="welcome-photo placeholder"><span>Photo — Candid Session Moment</span></div>
+</section>
+
+<!-- ============ PAGE 3 · ABOUT ============ -->
+<section class="page" data-document-role="page" data-label="About">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">About · 03</span>
+  </div>
+  <div class="about-grid">
+    <div>
+      <div class="about-photo placeholder"><span>Headshot</span></div>
+      <div class="about-caption">[Photographer Name]</div>
+    </div>
+    <div>
+      <div class="eyebrow">Behind the Camera</div>
+      <h1 class="display">About <em>[Photographer]</em></h1>
+      <div class="body-col" style="max-width: 340px;">
+        <p>[Short bio about the photographer's journey and passion for photography. Keep it concise and warm.]</p>
+        <p>My photography philosophy is centered around [Photography Philosophy Line — e.g., capturing authentic connection and genuine emotion].</p>
+      </div>
+      <div class="loves">
+        <div class="eyebrow" style="margin-bottom: 14px;">I especially love to photograph</div>
+        <div class="loves-item"><div class="loves-dot"></div><div class="loves-label">Families</div></div>
+        <div class="loves-item"><div class="loves-dot"></div><div class="loves-label">Seniors</div></div>
+        <div class="loves-item"><div class="loves-dot"></div><div class="loves-label">Maternity</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="about-quote">“[e.g., I believe the best moments happen when we're comfortable and laughing together.]”</div>
+</section>
+
+<!-- ============ PAGE 4 · THE EXPERIENCE ============ -->
+<section class="page" data-document-role="page" data-label="The Experience">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">The Experience · 04</span>
+  </div>
+  <div style="position: absolute; top: 132px; left: 152px;">
+    <div class="eyebrow">What to Expect</div>
+    <h1 class="display">The <em>experience</em></h1>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-numwrap"><div class="step-num">1</div></div>
+      <div class="step-body">
+        <div class="step-title">Inquiry</div>
+        <div class="step-text">You reach out!</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-numwrap"><div class="step-num">2</div></div>
+      <div class="step-body">
+        <div class="step-title">Booking</div>
+        <div class="step-text">We confirm your date and I send over your agreement and invoice.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-numwrap"><div class="step-num">3</div></div>
+      <div class="step-body">
+        <div class="step-title">Planning &amp; Prep</div>
+        <div class="step-text">We'll chat about your vision, outfits, and any details to make your session perfect.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-numwrap"><div class="step-num">4</div></div>
+      <div class="step-body">
+        <div class="step-title">Session Day</div>
+        <div class="step-text">Come ready to relax and have fun! Sessions run about [LENGTH — e.g., 1–2 hours] and are designed to be enjoyable for everyone, especially kids. We can shoot in-studio or on-location.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-numwrap"><div class="step-num">5</div></div>
+      <div class="step-body">
+        <div class="step-title">Gallery Delivery</div>
+        <div class="step-text">Within [Number] weeks, you'll receive your beautifully edited online gallery.</div>
+      </div>
+    </div>
+  </div>
+  <div class="exp-photo placeholder"><span>Photo — Session in Progress</span></div>
+</section>
+
+<!-- ============ PAGE 5 · INVESTMENT ============ -->
+<section class="page" data-document-role="page" data-label="Investment Overview">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Investment · 05</span>
+  </div>
+  <div style="position: absolute; top: 210px; left: 172px; width: 472px;">
+    <div class="eyebrow">Investment Overview</div>
+    <div class="invest-open">Sessions start at <em>[PRICE]</em></div>
+    <div class="invest-panel">
+      <div class="invest-panel-title">What's Included</div>
+      <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Session Fee</div></div>
+      <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">[# — e.g., 20] Professionally Edited Digital Images</div></div>
+      <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Private Online Gallery</div></div>
+    </div>
+    <div class="body-col">
+      <p>We also offer beautiful à la carte prints and collections. A full pricing guide is available upon request.</p>
+      <p><b>Payment &amp; Deposit:</b> A [Deposit Percentage — e.g., 50%] non-refundable retainer is required to secure your date, with the remaining balance due on session day.</p>
+    </div>
+    <div class="rule-terra"></div>
+    <div class="fineprint">[Cross-sell — e.g., For detailed product and collection pricing, please view our full Investment Guide: [Link to Full Guide]]</div>
+  </div>
+</section>
+
+<!-- ============ PAGE 6 · FAQ I ============ -->
+<section class="page" data-document-role="page" data-label="FAQ 1">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">FAQ · 06</span>
+  </div>
+  <div class="faq-wrap">
+    <div class="eyebrow">Good to Know</div>
+    <h1 class="display">Frequently asked <em>questions</em></h1>
+    <div class="faq-item">
+      <div class="faq-q">What should we wear?</div>
+      <div class="faq-a">[I'll send a detailed style guide to help you choose outfits that look amazing and feel comfortable! Generally, coordinating colors and avoiding busy patterns works best.]</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How many photos will we receive?</div>
+      <div class="faq-a">[Your session fee includes [Number] edited digital images. You'll have the opportunity to purchase additional images or collections if you wish.]</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">When will we see our gallery?</div>
+      <div class="faq-a">[Your online gallery will be ready within [Number] weeks of your session.]</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if it rains or a child melts down?</div>
+      <div class="faq-a">[No worries! We can reschedule due to weather. For meltdowns, we take breaks and go with the flow. My goal is to capture genuine moments, not forced smiles.]</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 7 · FAQ II ============ -->
+<section class="page" data-document-role="page" data-label="FAQ 2">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">FAQ · 07</span>
+  </div>
+  <div class="faq-wrap">
+    <div class="eyebrow">Good to Know</div>
+    <h1 class="display">Questions, <em>continued</em></h1>
+    <div class="faq-item">
+      <div class="faq-q">Do you travel?</div>
+      <div class="faq-a">[Yes, I love exploring new locations! Travel fees may apply for sessions outside of [Your Service Area].]</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do we book?</div>
+      <div class="faq-a">[See the 'Next Steps' section for easy booking instructions!]</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can we order prints?</div>
+      <div class="faq-a">[Absolutely! I offer high-quality prints, albums, and wall art through my professional print lab. I'm happy to help you choose the perfect pieces.]</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How long is a session?</div>
+      <div class="faq-a">[Most family and portrait sessions last approximately [Length — e.g., 1–2 hours].]</div>
+    </div>
+  </div>
+  <div class="exp-photo placeholder" style="height: 170px;"><span>Photo — Gallery Favourite</span></div>
+</section>
+
+<!-- ============ PAGE 8 · HOW TO BOOK ============ -->
+<section class="page" data-document-role="page" data-label="How to Book">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Next Steps · 08</span>
+  </div>
+  <div style="position: absolute; top: 176px; left: 172px;">
+    <div class="eyebrow">How to Book</div>
+    <h1 class="display">Ready to capture your <em>beautiful moments?</em></h1>
+    <div class="book-step">
+      <div class="book-num">1</div>
+      <div>
+        <div class="book-title">Reply to Claim Your Date</div>
+        <div class="book-text">Simply reply to this email to confirm your preferred date or inquire about availability.</div>
+      </div>
+    </div>
+    <div class="book-step">
+      <div class="book-num">2</div>
+      <div>
+        <div class="book-title">Sign the Agreement</div>
+        <div class="book-text">I'll send over a simple online contract for your review.</div>
+      </div>
+    </div>
+    <div class="book-step">
+      <div class="book-num">3</div>
+      <div>
+        <div class="book-title">Pay the Retainer</div>
+        <div class="book-text">A [Deposit Percentage — e.g., 50%] retainer secures your spot on my calendar.</div>
+      </div>
+    </div>
+    <div class="sig" style="margin-top: 14px;">I can't wait to create something beautiful with you!</div>
+  </div>
+  <div class="connect-panel">
+    <div class="connect-title">Let's Connect</div>
+    <div class="connect-line"><b>[email]</b> · [phone] · [website]</div>
+    <div class="connect-line">[@social — e.g., @yourinstagramhandle] · [booking link]</div>
+  </div>
+</section>
+
+<!-- ============ PAGE 9 · THANK YOU ============ -->
+<section class="page" data-document-role="page" data-label="Thank You">
+  <div class="thanks-wrap">
+    <div class="eyebrow" style="margin-bottom: 0;">With Gratitude</div>
+    <div class="thanks-title">Thank <em>you</em></div>
+    <div class="thanks-body">I am so looking forward to working with you and creating lasting memories.
+      <br><br><span class="sig">Warmly,</span><br>
+      <span style="font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;">[Photographer Name]</span>
+    </div>
+    <div class="brandmark"><span>[Mark]</span></div>
+  </div>
+  <div class="disclaimer">This template is provided for general informational purposes only and does not constitute legal advice. You are responsible for reviewing, customizing, and ensuring it meets your state law and business requirements before use.</div>
+</section>
