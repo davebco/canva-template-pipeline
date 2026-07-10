@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<!-- Listing 2 — Pricing & Investment Guide Set · Model A design master
+     Clones Listing 1's locked design system.
+     Brand tokens (locked): ivory #F7F3EE · charcoal #3E3A34 · terracotta #C0876B · sand #EAE3D9 · taupe #A39A8D
+     Cormorant Garamond (display) + Lato (body) — both free Canva fonts
+     Import-safe: NO CSS border anywhere (hairlines = filled 1px divs); solid fills only.
+     Pages annotated with data-document-role="page" for Canva import-design-from-url. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pricing &amp; Investment Guide — Listing 2 Master</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F7F3EE;
+    --ink: #3E3A34;
+    --terra: #C0876B;
+    --taupe: #A39A8D;
+    --sand: #EAE3D9;
+    --rule: #E0D8CC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #DED8CF; }
+  .page {
+    width: 816px;
+    height: 1056px;
+    background: var(--ivory);
+    position: relative;
+    overflow: hidden;
+    margin: 24px auto;
+    font-family: 'Lato', sans-serif;
+    color: var(--ink);
+  }
+  @media print {
+    html, body { background: none; }
+    .page { margin: 0; page-break-after: always; }
+  }
+  @page { size: 8.5in 11in; margin: 0; }
+
+  /* ---------- shared furniture (cloned from Listing 1) ---------- */
+  .masthead {
+    position: absolute; top: 44px; left: 72px; right: 72px;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .masthead .mh-left {
+    font-size: 8.5px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--taupe);
+  }
+  .masthead .mh-right {
+    font-size: 8.5px; font-weight: 400; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra);
+  }
+  .mh-rule { position: absolute; top: 66px; left: 72px; right: 72px; height: 1px; background: var(--rule); }
+  .eyebrow {
+    font-size: 10px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra);
+    margin-bottom: 18px;
+  }
+  h1.display {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500; font-size: 46px; line-height: 1.12;
+    letter-spacing: .01em; margin-bottom: 26px;
+  }
+  h1.display em { font-style: italic; font-weight: 500; color: var(--terra); }
+  .body-col { max-width: 450px; font-size: 12.5px; font-weight: 400; line-height: 1.85; }
+  .body-col p { margin-bottom: 14px; }
+  .rule-terra { width: 44px; height: 1px; background: var(--terra); margin: 26px 0; }
+  .placeholder {
+    background: var(--sand);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .placeholder span {
+    font-size: 9px; font-weight: 700; letter-spacing: .35em;
+    text-transform: uppercase; color: var(--taupe);
+  }
+  .sig {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 22px; color: var(--ink);
+  }
+  .sig-name {
+    font-size: 11px; font-weight: 700; letter-spacing: .22em;
+    text-transform: uppercase; margin-top: 6px;
+  }
+  .fineprint { font-size: 10.5px; line-height: 1.8; color: var(--taupe); font-style: italic; }
+
+  /* ---------- p1 cover (cloned) ---------- */
+  .cover-hero { position: absolute; inset: 0; }
+  .cover-panel {
+    position: absolute; left: 118px; right: 118px; bottom: 96px;
+    background: var(--ivory); padding: 54px 60px 50px; text-align: center;
+  }
+  .cover-studio {
+    font-size: 11px; font-weight: 700; letter-spacing: .42em;
+    text-transform: uppercase; color: var(--ink); margin-bottom: 6px;
+  }
+  .cover-logo {
+    font-size: 8px; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--taupe); margin-bottom: 30px;
+  }
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 500;
+    font-size: 54px; line-height: 1.08; margin-bottom: 24px;
+  }
+  .cover-title em { font-style: italic; color: var(--terra); }
+  .cover-tag {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 17px; color: var(--taupe); margin-bottom: 26px;
+  }
+  .cover-year {
+    display: inline-block; font-size: 9.5px; font-weight: 700;
+    letter-spacing: .32em; text-transform: uppercase; color: var(--terra);
+  }
+  .cover-rule { width: 44px; height: 1px; background: var(--rule); margin: 0 auto 14px; }
+
+  /* ---------- p2 investment guide ---------- */
+  .invest-open {
+    font-family: 'Cormorant Garamond', serif; font-weight: 500;
+    font-size: 34px; line-height: 1.2;
+  }
+  .invest-open em { font-style: italic; color: var(--terra); }
+  .invest-panel { background: var(--sand); padding: 34px 40px; margin: 32px 0 28px; }
+  .invest-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra); margin-bottom: 20px;
+  }
+  .inc-item { display: flex; gap: 14px; align-items: baseline; margin-bottom: 12px; }
+  .inc-dash { width: 16px; height: 1px; background: var(--terra); flex: none; transform: translateY(-4px); }
+  .inc-text { font-size: 12.5px; line-height: 1.6; }
+
+  /* ---------- p3 & p5 price rows ---------- */
+  .price-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 13px 2px 12px;
+  }
+  .pr-label { font-size: 12.5px; font-weight: 400; }
+  .pr-sub { font-size: 10px; color: var(--taupe); margin-top: 2px; }
+  .pr-price {
+    font-family: 'Cormorant Garamond', serif; font-weight: 600;
+    font-size: 19px; color: var(--ink); flex: none; padding-left: 20px;
+  }
+  .hair { height: 1px; background: var(--rule); }
+  .group-title {
+    font-size: 10px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra); margin: 0 0 6px;
+  }
+
+  /* ---------- p4 collection cards ---------- */
+  .compare { position: absolute; top: 232px; left: 72px; right: 72px; display: flex; gap: 18px; }
+  .pkg { flex: 1; background: var(--sand); padding: 30px 22px 26px; position: relative; }
+  .pkg-badge {
+    position: absolute; top: 0; left: 22px; right: 22px; height: 22px;
+    background: var(--terra); display: flex; align-items: center; justify-content: center;
+    font-size: 8px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: var(--ivory);
+  }
+  .pkg-name {
+    font-family: 'Cormorant Garamond', serif; font-weight: 600;
+    font-size: 24px; margin-bottom: 4px;
+  }
+  .pkg-price {
+    font-family: 'Cormorant Garamond', serif; font-weight: 600;
+    font-size: 30px; color: var(--terra); line-height: 1; margin-bottom: 18px;
+  }
+  .pkg-hair { height: 1px; background: var(--rule); margin: 0 0 16px; }
+  .pkg-attr { margin-bottom: 13px; }
+  .pkg-attr-k {
+    font-size: 8px; font-weight: 700; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--taupe); margin-bottom: 2px;
+  }
+  .pkg-attr-v { font-size: 12px; font-weight: 400; }
+  .pkg-best {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 13px; color: var(--ink); line-height: 1.4; margin-top: 4px;
+  }
+
+  /* ---------- p5 two columns ---------- */
+  .pp-cols { position: absolute; top: 220px; left: 72px; right: 72px; display: flex; gap: 56px; }
+  .pp-col { flex: 1; }
+  .pp-group { margin-bottom: 30px; }
+
+  .disclaimer {
+    position: absolute; left: 72px; right: 72px; bottom: 40px;
+    font-size: 7.5px; line-height: 1.6; color: var(--taupe); text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 · COVER ============ -->
+<section class="page" data-document-role="page" data-label="Cover">
+  <div class="cover-hero placeholder"><span>Hero Photo — Full Bleed</span></div>
+  <div class="cover-panel">
+    <div class="cover-studio">[Studio / Brand Name]</div>
+    <div class="cover-logo">· [logo] ·</div>
+    <div class="cover-title">Pricing &amp; <em>Investment</em> Guide</div>
+    <div class="cover-tag">Everything you need to plan your session</div>
+    <div class="cover-rule"></div>
+    <div class="cover-year">[Year]</div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 · INVESTMENT GUIDE ============ -->
+<section class="page" data-document-role="page" data-label="Investment Guide">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Investment · 02</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 132px; left: 172px; width: 472px;">
+    <div class="eyebrow">The Investment</div>
+    <h1 class="display">Your <em>investment</em></h1>
+    <div class="body-col">
+      <p>[Framing statement — e.g., These are the moments you'll want to hold onto forever. Every session is crafted, edited, and delivered with care so you walk away with heirlooms, not just photos.]</p>
+    </div>
+    <div class="invest-panel">
+      <div class="invest-panel-title">What Every Session Includes</div>
+      <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Professional session with [Photographer / Studio Name]</div></div>
+      <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">[# — e.g., 20] professionally edited digital images</div></div>
+      <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Private online gallery with print rights</div></div>
+      <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Personal styling &amp; planning guidance</div></div>
+    </div>
+    <div class="invest-open">Collections start at <em>[PRICE]</em></div>
+    <div class="body-col" style="margin-top: 18px;">
+      <p><b>Payment &amp; Terms:</b> A [Deposit % — e.g., 50%] non-refundable retainer reserves your date; the balance is due [on/before session day]. [Accepted payment methods.]</p>
+    </div>
+    <div class="rule-terra"></div>
+    <div class="sig">Ready to reserve your date?</div>
+    <div class="sig-name">[Reply · Booking Link · Contact]</div>
+  </div>
+</section>
+
+<!-- ============ PAGE 3 · À LA CARTE PRICE LIST ============ -->
+<section class="page" data-document-role="page" data-label="A La Carte">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Price List · 03</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 132px; left: 172px; right: 172px;">
+    <div class="eyebrow">À La Carte</div>
+    <h1 class="display">Price <em>list</em></h1>
+    <div style="margin-top: 8px;">
+      <div class="hair"></div>
+      <div class="price-row"><div><div class="pr-label">Session Fee</div></div><div class="pr-price">[PRICE]</div></div>
+      <div class="hair"></div>
+      <div class="price-row"><div><div class="pr-label">Additional Edited Image</div><div class="pr-sub">Each</div></div><div class="pr-price">[PRICE]</div></div>
+      <div class="hair"></div>
+      <div class="price-row"><div><div class="pr-label">Image Block</div><div class="pr-sub">Set of 10</div></div><div class="pr-price">[PRICE]</div></div>
+      <div class="hair"></div>
+      <div class="price-row"><div><div class="pr-label">Rush Delivery</div><div class="pr-sub">[X]-day turnaround</div></div><div class="pr-price">[PRICE]</div></div>
+      <div class="hair"></div>
+      <div class="price-row"><div><div class="pr-label">Additional Location</div></div><div class="pr-price">[PRICE]</div></div>
+      <div class="hair"></div>
+      <div class="price-row"><div><div class="pr-label">Additional Outfit Change</div></div><div class="pr-price">[PRICE]</div></div>
+      <div class="hair"></div>
+      <div class="price-row"><div><div class="pr-label">Travel Fee</div><div class="pr-sub">Beyond [X] miles</div></div><div class="pr-price">[PRICE]</div></div>
+      <div class="hair"></div>
+      <div class="price-row"><div><div class="pr-label">Gift Print Set</div></div><div class="pr-price">[PRICE]</div></div>
+      <div class="hair"></div>
+    </div>
+    <div class="fineprint" style="margin-top: 26px;">Prices valid through [DATE]. Applicable sales tax not included.</div>
+  </div>
+</section>
+
+<!-- ============ PAGE 4 · COLLECTION COMPARISON ============ -->
+<section class="page" data-document-role="page" data-label="Collections">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Collections · 04</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 132px; left: 152px;">
+    <div class="eyebrow">Collections</div>
+    <h1 class="display">Choose your <em>collection</em></h1>
+  </div>
+  <div class="compare">
+    <div class="pkg">
+      <div class="pkg-name">The Mini</div>
+      <div class="pkg-price">[PRICE]</div>
+      <div class="pkg-hair"></div>
+      <div class="pkg-attr"><div class="pkg-attr-k">Session Length</div><div class="pkg-attr-v">[20 min]</div></div>
+      <div class="pkg-attr"><div class="pkg-attr-k">Locations / Outfits</div><div class="pkg-attr-v">[1 / 1]</div></div>
+      <div class="pkg-attr"><div class="pkg-attr-k">Edited Images</div><div class="pkg-attr-v">[10]</div></div>
+      <div class="pkg-attr"><div class="pkg-attr-k">Print Credit</div><div class="pkg-attr-v">[—]</div></div>
+      <div class="pkg-attr"><div class="pkg-attr-k">Digital Rights</div><div class="pkg-attr-v">[Personal use]</div></div>
+      <div class="pkg-hair"></div>
+      <div class="pkg-best">Best for [quick updates &amp; holiday cards]</div>
+    </div>
+    <div class="pkg" style="padding-top: 42px;">
+      <div class="pkg-badge">Most Popular</div>
+      <div class="pkg-name">The Signature</div>
+      <div class="pkg-price">[PRICE]</div>
+      <div class="pkg-hair"></div>
+      <div class="pkg-attr"><div class="pkg-attr-k">Session Length</div><div class="pkg-attr-v">[60 min]</div></div>
+      <div class="pkg-attr"><div class="pkg-attr-k">Locations / Outfits</div><div class="pkg-attr-v">[1 / 2]</div></div>
+      <div class="pkg-attr"><div class="pkg-attr-k">Edited Images</div><div class="pkg-attr-v">[25]</div></div>
+      <div class="pkg-attr"><div class="pkg-attr-k">Print Credit</div><div class="pkg-attr-v">[$75]</div></div>
+      <div class="pkg-attr"><div class="pkg-attr-k">Digital Rights</div><div class="pkg-attr-v">[Personal use]</div></div>
+      <div class="pkg-hair"></div>
+      <div class="pkg-best">Best for [families wanting a full gallery]</div>
+    </div>
+    <div class="pkg">
+      <div class="pkg-name">The Deluxe</div>
+      <div class="pkg-price">[PRICE]</div>
+      <div class="pkg-hair"></div>
+      <div class="pkg-attr"><div class="pkg-attr-k">Session Length</div><div class="pkg-attr-v">[90 min]</div></div>
+      <div class="pkg-attr"><div class="pkg-attr-k">Locations / Outfits</div><div class="pkg-attr-v">[2 / 3]</div></div>
+      <div class="pkg-attr"><div class="pkg-attr-k">Edited Images</div><div class="pkg-attr-v">[40]</div></div>
+      <div class="pkg-attr"><div class="pkg-attr-k">Print Credit</div><div class="pkg-attr-v">[$150]</div></div>
+      <div class="pkg-attr"><div class="pkg-attr-k">Digital Rights</div><div class="pkg-attr-v">[Personal use]</div></div>
+      <div class="pkg-hair"></div>
+      <div class="pkg-best">Best for [milestones &amp; wall-art collections]</div>
+    </div>
+  </div>
+  <div class="fineprint" style="position: absolute; left: 72px; right: 72px; bottom: 72px; text-align: center;">All collections include a private online gallery. Prices valid through [DATE].</div>
+</section>
+
+<!-- ============ PAGE 5 · PRINT & PRODUCT PRICE LIST ============ -->
+<section class="page" data-document-role="page" data-label="Prints and Products">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Prints &amp; Products · 05</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 132px; left: 72px;">
+    <div class="eyebrow">Prints &amp; Products</div>
+    <h1 class="display">Prints &amp; <em>products</em></h1>
+  </div>
+  <div class="pp-cols">
+    <div class="pp-col">
+      <div class="pp-group">
+        <div class="group-title">Prints</div>
+        <div class="hair"></div>
+        <div class="price-row"><div class="pr-label">8×10 Print</div><div class="pr-price">[PRICE]</div></div>
+        <div class="hair"></div>
+        <div class="price-row"><div class="pr-label">11×14 Print</div><div class="pr-price">[PRICE]</div></div>
+        <div class="hair"></div>
+        <div class="price-row"><div class="pr-label">16×20 Print</div><div class="pr-price">[PRICE]</div></div>
+        <div class="hair"></div>
+      </div>
+      <div class="pp-group">
+        <div class="group-title">Wall Art</div>
+        <div class="hair"></div>
+        <div class="price-row"><div class="pr-label">16×24 Canvas</div><div class="pr-price">[PRICE]</div></div>
+        <div class="hair"></div>
+        <div class="price-row"><div class="pr-label">24×36 Canvas</div><div class="pr-price">[PRICE]</div></div>
+        <div class="hair"></div>
+        <div class="price-row"><div class="pr-label">Framed Fine-Art Print</div><div class="pr-price">[PRICE]</div></div>
+        <div class="hair"></div>
+      </div>
+    </div>
+    <div class="pp-col">
+      <div class="pp-group">
+        <div class="group-title">Albums</div>
+        <div class="hair"></div>
+        <div class="price-row"><div class="pr-label">10×10 Heirloom Album</div><div class="pr-price">[PRICE]</div></div>
+        <div class="hair"></div>
+        <div class="price-row"><div class="pr-label">Parent Album Copy</div><div class="pr-price">[PRICE]</div></div>
+        <div class="hair"></div>
+      </div>
+      <div class="pp-group">
+        <div class="group-title">Digital</div>
+        <div class="hair"></div>
+        <div class="price-row"><div class="pr-label">Single Additional Image</div><div class="pr-price">[PRICE]</div></div>
+        <div class="hair"></div>
+        <div class="price-row"><div class="pr-label">Full Gallery Upgrade</div><div class="pr-price">[PRICE]</div></div>
+        <div class="hair"></div>
+      </div>
+    </div>
+  </div>
+  <div style="position: absolute; left: 72px; right: 72px; bottom: 72px;">
+    <div class="rule-terra" style="margin: 0 auto 16px;"></div>
+    <div class="fineprint" style="text-align: center;">Ordering &amp; turnaround: [orders placed through your private gallery; allow [X] weeks for prints and [X] weeks for albums]. Minimum order [amount / none]. Order by [DATE] for holiday delivery.</div>
+  </div>
+  <div class="disclaimer">This template is provided for general informational purposes only and does not constitute legal advice. You are responsible for reviewing, customizing, and ensuring it meets your state law and business requirements before use.</div>
+</section>
+</body>
+</html>

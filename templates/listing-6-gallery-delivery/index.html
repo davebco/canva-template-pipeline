@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<!-- Listing 6 — Gallery Delivery & Client Care Set · Model A design master
+     Clones Listing 1/2's locked design system.
+     Brand tokens (locked): ivory #F7F3EE · charcoal #3E3A34 · terracotta #C0876B · sand #EAE3D9 · taupe #A39A8D
+     Cormorant Garamond (display) + Lato (body) — both free Canva fonts
+     Import-safe: NO CSS border anywhere (hairlines/rules/cards = filled 1px divs); solid fills only.
+     Card pieces (thank-you, referral) laid out on US Letter pages — physical card trims are a later manual step.
+     Pages annotated with data-document-role="page" for Canva import-design-from-url. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Gallery Delivery &amp; Client Care — Listing 6 Master</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F7F3EE;
+    --ink: #3E3A34;
+    --terra: #C0876B;
+    --taupe: #A39A8D;
+    --sand: #EAE3D9;
+    --rule: #E0D8CC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #DED8CF; }
+  .page {
+    width: 816px;
+    height: 1056px;
+    background: var(--ivory);
+    position: relative;
+    overflow: hidden;
+    margin: 24px auto;
+    font-family: 'Lato', sans-serif;
+    color: var(--ink);
+  }
+  @media print {
+    html, body { background: none; }
+    .page { margin: 0; page-break-after: always; }
+  }
+  @page { size: 8.5in 11in; margin: 0; }
+
+  /* ---------- shared furniture (cloned from Listing 1/2) ---------- */
+  .masthead {
+    position: absolute; top: 44px; left: 72px; right: 72px;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .masthead .mh-left { font-size: 8.5px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--taupe); }
+  .masthead .mh-right { font-size: 8.5px; font-weight: 400; letter-spacing: .3em; text-transform: uppercase; color: var(--terra); }
+  .mh-rule { position: absolute; top: 66px; left: 72px; right: 72px; height: 1px; background: var(--rule); }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--terra); margin-bottom: 18px; }
+  h1.display { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 44px; line-height: 1.12; letter-spacing: .01em; margin-bottom: 22px; }
+  h1.display em { font-style: italic; font-weight: 500; color: var(--terra); }
+  .body-col { max-width: 560px; font-size: 12px; font-weight: 400; line-height: 1.75; }
+  .body-col p { margin-bottom: 12px; }
+  .rule-terra { width: 44px; height: 1px; background: var(--terra); margin: 22px 0; }
+  .fineprint { font-size: 10.5px; line-height: 1.8; color: var(--taupe); font-style: italic; }
+  .group-title { font-size: 10px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--terra); margin: 0 0 12px; }
+  .sig { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: var(--ink); }
+  .sig-name { font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; margin-top: 6px; }
+
+  /* placeholder / cover (cloned) */
+  .placeholder { background: var(--sand); display: flex; align-items: center; justify-content: center; }
+  .placeholder span { font-size: 9px; font-weight: 700; letter-spacing: .35em; text-transform: uppercase; color: var(--taupe); }
+  .cover-hero { position: absolute; inset: 0; }
+  .cover-panel { position: absolute; left: 118px; right: 118px; bottom: 96px; background: var(--ivory); padding: 54px 60px 50px; text-align: center; }
+  .cover-studio { font-size: 11px; font-weight: 700; letter-spacing: .42em; text-transform: uppercase; color: var(--ink); margin-bottom: 6px; }
+  .cover-logo { font-size: 8px; letter-spacing: .3em; text-transform: uppercase; color: var(--taupe); margin-bottom: 30px; }
+  .cover-title { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.08; margin-bottom: 24px; }
+  .cover-title em { font-style: italic; color: var(--terra); }
+  .cover-tag { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; color: var(--taupe); margin-bottom: 26px; }
+  .cover-year { display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; color: var(--terra); }
+  .cover-rule { width: 44px; height: 1px; background: var(--rule); margin: 0 auto 14px; }
+
+  /* sand panel */
+  .panel { background: var(--sand); padding: 26px 32px; }
+  .panel-title { font-size: 10px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--terra); margin-bottom: 16px; }
+
+  /* two columns + dashed list */
+  .cols { display: flex; gap: 48px; }
+  .col { flex: 1; }
+  .inc-item { display: flex; gap: 12px; align-items: baseline; margin-bottom: 9px; }
+  .inc-dash { width: 14px; height: 1px; background: var(--terra); flex: none; transform: translateY(-4px); }
+  .inc-text { font-size: 11.5px; line-height: 1.55; }
+
+  /* detail list (links / access) */
+  .dl-row { display: flex; margin-bottom: 11px; }
+  .dl-k { font-size: 9px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--taupe); width: 150px; flex: none; padding-top: 2px; }
+  .dl-v { font-size: 12px; line-height: 1.4; }
+
+  /* price-row recap (cloned from Listing 2) */
+  .price-row { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 2px; }
+  .pr-label { font-size: 12px; font-weight: 400; }
+  .pr-price { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 17px; color: var(--ink); flex: none; padding-left: 20px; }
+  .hair { height: 1px; background: var(--rule); }
+
+  /* highlight callout */
+  .callout { background: var(--sand); padding: 16px 24px; text-align: center; }
+  .callout-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: var(--ink); }
+  .callout-text b { font-style: normal; font-weight: 600; color: var(--terra); }
+
+  /* ---------- cards (thank-you, referral) ---------- */
+  .card { background: var(--sand); padding: 46px 40px; position: relative; }
+  .card-center { text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .card-mark { width: 58px; height: 58px; background: var(--ivory); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 22px; }
+  .card-mark span { font-size: 7.5px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: var(--taupe); }
+  .card-title { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 46px; line-height: 1.05; margin-bottom: 18px; }
+  .card-title em { font-style: italic; color: var(--terra); }
+  .card-body { font-size: 11.5px; line-height: 1.75; }
+  .card-cap { margin-top: 10px; text-align: center; font-size: 8px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: var(--taupe); }
+  .card-studio { font-size: 9.5px; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; color: var(--ink); margin-top: 20px; }
+
+  .disclaimer {
+    position: absolute; left: 72px; right: 72px; bottom: 40px;
+    font-size: 7.5px; line-height: 1.6; color: var(--taupe); text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 · COVER ============ -->
+<section class="page" data-document-role="page" data-label="Cover">
+  <div class="cover-hero placeholder"><span>Hero Photo — Full Bleed</span></div>
+  <div class="cover-panel">
+    <div class="cover-studio">[Studio / Brand Name]</div>
+    <div class="cover-logo">· [logo] ·</div>
+    <div class="cover-title">Gallery Delivery <em>&amp; Client Care</em></div>
+    <div class="cover-tag">The polished goodbye that keeps clients coming back</div>
+    <div class="cover-rule"></div>
+    <div class="cover-year">[Year]</div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 · YOUR GALLERY IS READY ============ -->
+<section class="page" data-document-role="page" data-label="Gallery Ready">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Gallery Delivery · 02</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 116px; left: 72px; right: 72px;">
+    <div class="eyebrow">It's Here</div>
+    <h1 class="display">Your gallery is <em>ready</em></h1>
+    <div class="body-col" style="margin-bottom: 24px;">
+      <p>Hi [Name], the moment you've been waiting for — your gallery is live! Thank you for trusting me with your memories. I hope you love these images as much as I loved creating them.</p>
+    </div>
+    <div class="panel" style="margin-bottom: 26px;">
+      <div class="panel-title">Your Gallery Access</div>
+      <div class="dl-row"><div class="dl-k">Gallery Link</div><div class="dl-v">[gallery link]</div></div>
+      <div class="dl-row"><div class="dl-k">Password</div><div class="dl-v">[password]</div></div>
+      <div class="dl-row" style="margin-bottom: 0;"><div class="dl-k">Available Until</div><div class="dl-v">[date] — please download before then</div></div>
+    </div>
+    <div class="cols">
+      <div class="col">
+        <div class="group-title">How to Download</div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Open the gallery link and enter your password.</div></div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Tap the download icon for the full gallery or a single image.</div></div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Save to your device, then back up to the cloud.</div></div>
+      </div>
+      <div class="col">
+        <div class="group-title">Want Prints?</div>
+        <div class="body-col" style="font-size: 11.5px;">
+          <p>Order professional prints, canvases, and albums right from your gallery store — see the enclosed <b>Print Reorder Guide</b> for the full menu.</p>
+        </div>
+      </div>
+    </div>
+    <div class="rule-terra"></div>
+    <div class="body-col" style="font-size: 11.5px;">
+      <p><b>Love your photos?</b> I'd be so grateful if you shared a favorite and tagged <b>[@handle]</b> — it means the world to a small business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 3 · THANK-YOU CARD ============ -->
+<section class="page" data-document-role="page" data-label="Thank You Card">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Thank-You Card · 03</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 108px; left: 72px; right: 72px;">
+    <div class="eyebrow" style="text-align: center;">A Little Note of Thanks</div>
+    <div class="cols" style="gap: 26px; margin-top: 6px;">
+      <div class="col">
+        <div class="card card-center" style="height: 560px;">
+          <div class="card-mark"><span>[Mark]</span></div>
+          <div class="card-title">Thank <em>you</em></div>
+          <div class="card-body" style="max-width: 240px;">For letting me capture your story. It was a joy.</div>
+          <div class="card-studio">[Studio / Brand Name]</div>
+        </div>
+        <div class="card-cap">Card Front</div>
+      </div>
+      <div class="col">
+        <div class="card" style="height: 560px;">
+          <div class="card-body" style="line-height: 1.85;">
+            <p style="margin-bottom: 14px;">Dear [Name],</p>
+            <p style="margin-bottom: 14px;">Thank you so much for choosing me to document this season of your life. Getting to know your family and freezing these little moments in time was truly a gift.</p>
+            <p style="margin-bottom: 14px;">As a small thank-you, enjoy <b>[CREDIT / discount]</b> toward your next session — just mention this card when you book.</p>
+            <p style="margin-bottom: 22px;">I can't wait to photograph you again.</p>
+          </div>
+          <div class="sig">With gratitude,</div>
+          <div class="sig-name">[Photographer Name]</div>
+          <div class="fineprint" style="font-size: 10px; margin-top: 16px;">[email] · [phone] · [website]</div>
+        </div>
+        <div class="card-cap">Card Back</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 4 · PRINT REORDER GUIDE ============ -->
+<section class="page" data-document-role="page" data-label="Print Reorder Guide">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Reorder Guide · 04</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 116px; left: 72px; right: 72px;">
+    <div class="eyebrow">Keep the Memories</div>
+    <h1 class="display">Print reorder <em>guide</em></h1>
+    <div class="body-col" style="margin-bottom: 22px;">
+      <p>Your gallery deserves more than a phone screen. Professional prints are made to last generations — here's how to bring your favorites home.</p>
+    </div>
+    <div class="cols" style="margin-bottom: 24px;">
+      <div class="col">
+        <div class="group-title">Why Professional Prints</div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Archival paper &amp; inks that resist fading for decades.</div></div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">True-to-life color, hand-calibrated to your images.</div></div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Gallery-grade materials drugstore kiosks can't match.</div></div>
+      </div>
+      <div class="col">
+        <div class="group-title">How to Order</div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Open your gallery and click the <b>Store</b> or <b>Order Prints</b> button.</div></div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Choose your sizes and products, then check out.</div></div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Prefer help? Just reply and I'll place the order for you.</div></div>
+      </div>
+    </div>
+    <div class="group-title">Product Menu</div>
+    <div class="hair"></div>
+    <div class="price-row"><div class="pr-label">Fine-Art Prints (8×10 – 16×20)</div><div class="pr-price">from [PRICE]</div></div>
+    <div class="hair"></div>
+    <div class="price-row"><div class="pr-label">Gallery Canvas &amp; Wall Art</div><div class="pr-price">from [PRICE]</div></div>
+    <div class="hair"></div>
+    <div class="price-row"><div class="pr-label">Heirloom Albums</div><div class="pr-price">from [PRICE]</div></div>
+    <div class="hair"></div>
+    <div class="price-row"><div class="pr-label">Additional Digital Images</div><div class="pr-price">from [PRICE]</div></div>
+    <div class="hair"></div>
+    <div class="callout" style="margin-top: 26px;">
+      <div class="callout-text">Turnaround is [X] weeks. <b>Order by [DATE] for holiday delivery.</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 5 · REVIEW REQUEST ============ -->
+<section class="page" data-document-role="page" data-label="Review Request">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Review Request · 05</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 116px; left: 72px; right: 72px;">
+    <div class="eyebrow">One Small Favor</div>
+    <h1 class="display">Would you leave a <em>review?</em></h1>
+    <div class="body-col" style="margin-bottom: 24px;">
+      <p>Hi [Name], I hope you're loving your gallery! If you enjoyed our time together, a quick review would mean the world — it's the biggest way you can support a small photography business and help other families find me.</p>
+    </div>
+    <div class="panel" style="margin-bottom: 26px;">
+      <div class="panel-title">Leave a Review Here</div>
+      <div class="dl-row"><div class="dl-k">Google</div><div class="dl-v">[Google review link]</div></div>
+      <div class="dl-row"><div class="dl-k">Facebook</div><div class="dl-v">[Facebook review link]</div></div>
+      <div class="dl-row" style="margin-bottom: 0;"><div class="dl-k">[Platform]</div><div class="dl-v">[review link]</div></div>
+    </div>
+    <div class="group-title">Not Sure What to Say?</div>
+    <div class="body-col" style="font-size: 11.5px; margin-bottom: 22px;">
+      <p>No need to overthink it! A sentence or two is perfect — e.g., <i>what the experience was like, how your family felt, and whether you'd recommend me.</i></p>
+    </div>
+    <div class="rule-terra"></div>
+    <div class="sig">Thank you — truly.</div>
+    <div class="sig-name">[Photographer Name]</div>
+  </div>
+</section>
+
+<!-- ============ PAGE 6 · REFERRAL CARD ============ -->
+<section class="page" data-document-role="page" data-label="Referral Card">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Referral Card · 06</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 108px; left: 72px; right: 72px;">
+    <div class="eyebrow" style="text-align: center;">Share the Love</div>
+    <div class="card card-center" style="max-width: 500px; margin: 8px auto 0; padding: 54px 48px;">
+      <div class="card-mark"><span>[Mark]</span></div>
+      <div class="card-title" style="font-size: 40px;">Know someone who'd <em>love photos?</em></div>
+      <div class="card-body" style="max-width: 340px; margin-bottom: 22px;">Refer a friend and you'll <b>both</b> receive <b>[CREDIT]</b> toward a session. There's no limit — share as often as you like!</div>
+      <div style="width: 100%; max-width: 340px;">
+        <div class="group-title" style="text-align: center; margin-bottom: 14px;">How It Works</div>
+        <div class="inc-item" style="justify-content: center; text-align: left;"><div class="inc-dash"></div><div class="inc-text">Send your friend to [booking link] and have them mention your name.</div></div>
+        <div class="inc-item" style="text-align: left;"><div class="inc-dash"></div><div class="inc-text">Once they book, your credit is applied to your next session.</div></div>
+      </div>
+      <div class="card-studio">[Studio / Brand Name] · [email] · [website]</div>
+    </div>
+  </div>
+  <div class="disclaimer">This template is provided for general informational purposes only and does not constitute legal advice. You are responsible for reviewing, customizing, and ensuring it meets your state law and business requirements before use.</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<!-- Listing 5 — Inquiry & Client Questionnaire Set · Model A design master
+     Clones Listing 1/2's locked design system.
+     Brand tokens (locked): ivory #F7F3EE · charcoal #3E3A34 · terracotta #C0876B · sand #EAE3D9 · taupe #A39A8D
+     Cormorant Garamond (display) + Lato (body) — both free Canva fonts
+     Import-safe: NO CSS border anywhere (hairlines/rules/boxes = filled 1px divs); solid fills only.
+     Pages annotated with data-document-role="page" for Canva import-design-from-url. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Inquiry &amp; Questionnaire Set — Listing 5 Master</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F7F3EE;
+    --ink: #3E3A34;
+    --terra: #C0876B;
+    --taupe: #A39A8D;
+    --sand: #EAE3D9;
+    --rule: #E0D8CC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #DED8CF; }
+  .page {
+    width: 816px;
+    height: 1056px;
+    background: var(--ivory);
+    position: relative;
+    overflow: hidden;
+    margin: 24px auto;
+    font-family: 'Lato', sans-serif;
+    color: var(--ink);
+  }
+  @media print {
+    html, body { background: none; }
+    .page { margin: 0; page-break-after: always; }
+  }
+  @page { size: 8.5in 11in; margin: 0; }
+
+  /* ---------- shared furniture (cloned from Listing 1/2) ---------- */
+  .masthead {
+    position: absolute; top: 44px; left: 72px; right: 72px;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .masthead .mh-left {
+    font-size: 8.5px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--taupe);
+  }
+  .masthead .mh-right {
+    font-size: 8.5px; font-weight: 400; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra);
+  }
+  .mh-rule { position: absolute; top: 66px; left: 72px; right: 72px; height: 1px; background: var(--rule); }
+  .eyebrow {
+    font-size: 10px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra);
+    margin-bottom: 18px;
+  }
+  h1.display {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500; font-size: 44px; line-height: 1.12;
+    letter-spacing: .01em; margin-bottom: 22px;
+  }
+  h1.display em { font-style: italic; font-weight: 500; color: var(--terra); }
+  .body-col { max-width: 560px; font-size: 12px; font-weight: 400; line-height: 1.75; }
+  .body-col p { margin-bottom: 12px; }
+  .rule-terra { width: 44px; height: 1px; background: var(--terra); margin: 22px 0; }
+  .fineprint { font-size: 10.5px; line-height: 1.8; color: var(--taupe); font-style: italic; }
+  .group-title {
+    font-size: 10px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra); margin: 0 0 12px;
+  }
+  .sig { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: var(--ink); }
+  .sig-name { font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; margin-top: 6px; }
+
+  /* placeholder / cover (cloned) */
+  .placeholder { background: var(--sand); display: flex; align-items: center; justify-content: center; }
+  .placeholder span {
+    font-size: 9px; font-weight: 700; letter-spacing: .35em;
+    text-transform: uppercase; color: var(--taupe);
+  }
+  .cover-hero { position: absolute; inset: 0; }
+  .cover-panel {
+    position: absolute; left: 118px; right: 118px; bottom: 96px;
+    background: var(--ivory); padding: 54px 60px 50px; text-align: center;
+  }
+  .cover-studio { font-size: 11px; font-weight: 700; letter-spacing: .42em; text-transform: uppercase; color: var(--ink); margin-bottom: 6px; }
+  .cover-logo { font-size: 8px; letter-spacing: .3em; text-transform: uppercase; color: var(--taupe); margin-bottom: 30px; }
+  .cover-title { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.08; margin-bottom: 24px; }
+  .cover-title em { font-style: italic; color: var(--terra); }
+  .cover-tag { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; color: var(--taupe); margin-bottom: 26px; }
+  .cover-year { display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; color: var(--terra); }
+  .cover-rule { width: 44px; height: 1px; background: var(--rule); margin: 0 auto 14px; }
+
+  /* sand panel */
+  .panel { background: var(--sand); padding: 26px 32px; }
+  .panel-title { font-size: 10px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--terra); margin-bottom: 16px; }
+
+  /* two columns + dashed list */
+  .cols { display: flex; gap: 48px; }
+  .col { flex: 1; }
+  .inc-item { display: flex; gap: 12px; align-items: baseline; margin-bottom: 9px; }
+  .inc-dash { width: 14px; height: 1px; background: var(--terra); flex: none; transform: translateY(-4px); }
+  .inc-text { font-size: 11.5px; line-height: 1.55; }
+
+  /* checkbox (filled square, no border) */
+  .chk { display: flex; align-items: flex-start; gap: 11px; margin-bottom: 10px; }
+  .chk-box { width: 13px; height: 13px; background: var(--terra); flex: none; margin-top: 1px; display: flex; align-items: center; justify-content: center; }
+  .chk-box-inner { width: 11px; height: 11px; background: var(--ivory); }
+  .chk-text { font-size: 11.5px; line-height: 1.5; }
+
+  /* form fields (write-on lines = filled 1px rules) */
+  .field { margin-bottom: 16px; }
+  .field-k { font-size: 8.5px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--taupe); margin-bottom: 7px; }
+  .field-line { height: 1px; background: var(--rule); }
+  .field-line2 { height: 1px; background: var(--rule); margin-top: 20px; }
+
+  /* email scripts */
+  .email { margin-bottom: 22px; }
+  .email-tag { font-size: 9px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--terra); margin-bottom: 9px; }
+  .email-subject { font-size: 11.5px; margin-bottom: 8px; }
+  .email-subject b { font-weight: 700; }
+  .email-subject span { color: var(--taupe); letter-spacing: .16em; text-transform: uppercase; font-size: 8.5px; font-weight: 700; margin-right: 7px; }
+  .email-body { font-size: 11px; line-height: 1.7; max-width: 640px; color: var(--ink); }
+  .email-hair { height: 1px; background: var(--rule); margin: 0 0 20px; }
+
+  /* detail list (confirmation / reminder) */
+  .dl-row { display: flex; margin-bottom: 11px; }
+  .dl-k { font-size: 9px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--taupe); width: 150px; flex: none; padding-top: 2px; }
+  .dl-v { font-size: 12px; line-height: 1.4; }
+
+  .disclaimer {
+    position: absolute; left: 72px; right: 72px; bottom: 40px;
+    font-size: 7.5px; line-height: 1.6; color: var(--taupe); text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 · COVER ============ -->
+<section class="page" data-document-role="page" data-label="Cover">
+  <div class="cover-hero placeholder"><span>Hero Photo — Full Bleed</span></div>
+  <div class="cover-panel">
+    <div class="cover-studio">[Studio / Brand Name]</div>
+    <div class="cover-logo">· [logo] ·</div>
+    <div class="cover-title">Inquiry &amp; <em>Questionnaire</em> Set</div>
+    <div class="cover-tag">Onboard every new client the same polished way</div>
+    <div class="cover-rule"></div>
+    <div class="cover-year">[Year]</div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 · INQUIRY-RESPONSE EMAIL SCRIPTS ============ -->
+<section class="page" data-document-role="page" data-label="Inquiry Email Scripts">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Email Scripts · 02</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 116px; left: 72px; right: 72px;">
+    <div class="eyebrow">Ready-to-Send</div>
+    <h1 class="display">Inquiry-response <em>scripts</em></h1>
+    <div class="body-col" style="margin-bottom: 24px;">
+      <p>Copy, paste, and swap the [brackets]. Answer every inquiry in seconds without sounding like a robot.</p>
+    </div>
+    <div class="email">
+      <div class="email-tag">Script 01 · Initial Reply</div>
+      <div class="email-subject"><span>Subject</span><b>Thank you for reaching out!</b></div>
+      <div class="email-body">Hi [Name], thank you so much for reaching out about your [session type] session — I'd love to work with you! I've attached my welcome guide so you can get a feel for the experience and what's included. Sessions start at [PRICE]. I currently have availability on [date option 1] and [date option 2] — would either work for you? Once we choose a date, I'll send a simple agreement and retainer invoice to make it official. Warmly, [Photographer]</div>
+    </div>
+    <div class="email-hair"></div>
+    <div class="email">
+      <div class="email-tag">Script 02 · Follow-Up Nudge</div>
+      <div class="email-subject"><span>Subject</span><b>Still thinking about your session?</b></div>
+      <div class="email-body">Hi [Name], just circling back on your [session type] inquiry — I know life gets busy! I'd still love to capture these memories for you. My [season / month] dates are filling up, so let me know if you'd like me to hold one of the times I mentioned. No pressure at all — happy to answer any questions. Warmly, [Photographer]</div>
+    </div>
+    <div class="email-hair"></div>
+    <div class="email">
+      <div class="email-tag">Script 03 · Fully Booked / Referral</div>
+      <div class="email-subject"><span>Subject</span><b>About your [date] session</b></div>
+      <div class="email-body">Hi [Name], thank you so much for thinking of me! Unfortunately I'm already booked for [date] and won't be able to take your session. I'd hate to leave you without options — [Referral Name] at [Studio] does lovely work and may have availability: [contact]. If your plans are flexible, I'd be glad to look at other dates too. Wishing you a beautiful session either way! Warmly, [Photographer]</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 3 · CLIENT / SESSION QUESTIONNAIRE ============ -->
+<section class="page" data-document-role="page" data-label="Client Questionnaire">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Questionnaire · 03</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 112px; left: 72px; right: 72px;">
+    <div class="eyebrow">Tell Me About Your Session</div>
+    <h1 class="display">Client <em>questionnaire</em></h1>
+    <div class="cols">
+      <div class="col">
+        <div class="field"><div class="field-k">Your Name(s)</div><div class="field-line"></div></div>
+        <div class="field"><div class="field-k">Email</div><div class="field-line"></div></div>
+        <div class="field"><div class="field-k">Phone</div><div class="field-line"></div></div>
+        <div class="field"><div class="field-k">Session Type</div><div class="field-line"></div></div>
+        <div class="field"><div class="field-k">Occasion (milestone, holiday, maternity…)</div><div class="field-line"></div></div>
+      </div>
+      <div class="col">
+        <div class="field"><div class="field-k">Preferred Date &amp; Time</div><div class="field-line"></div></div>
+        <div class="field"><div class="field-k">Backup Date</div><div class="field-line"></div></div>
+        <div class="field"><div class="field-k">Location Preference</div><div class="field-line"></div></div>
+        <div class="field"><div class="field-k">How Did You Hear About Me?</div><div class="field-line"></div></div>
+        <div class="field"><div class="field-k">Budget Range (optional)</div><div class="field-line"></div></div>
+      </div>
+    </div>
+    <div class="field"><div class="field-k">Who Will Be Photographed? (names &amp; ages of kids, pets)</div><div class="field-line"></div><div class="field-line2"></div></div>
+    <div class="group-title" style="margin-top: 6px;">The Vibe You're After</div>
+    <div class="cols" style="margin-bottom: 6px;">
+      <div class="col">
+        <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Bright &amp; fun</div></div>
+        <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Soft &amp; moody</div></div>
+      </div>
+      <div class="col">
+        <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Classic &amp; timeless</div></div>
+        <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Candid &amp; playful</div></div>
+      </div>
+    </div>
+    <div class="field" style="margin-top: 14px;"><div class="field-k">Must-Have Shots or Ideas</div><div class="field-line"></div><div class="field-line2"></div></div>
+    <div class="field"><div class="field-k">Anything I Should Know? (shy toddler, mobility needs, surprises…)</div><div class="field-line"></div><div class="field-line2"></div></div>
+  </div>
+</section>
+
+<!-- ============ PAGE 4 · BOOKING CONFIRMATION ============ -->
+<section class="page" data-document-role="page" data-label="Booking Confirmation">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Confirmation · 04</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 116px; left: 72px; right: 72px;">
+    <div class="eyebrow">You're Booked</div>
+    <h1 class="display">Booking <em>confirmed</em></h1>
+    <div class="body-col" style="margin-bottom: 24px;">
+      <p>Hi [Name], your session is officially on the calendar — I can't wait to capture these memories for you! Here are your details:</p>
+    </div>
+    <div class="panel" style="margin-bottom: 26px;">
+      <div class="panel-title">Your Session Details</div>
+      <div class="dl-row"><div class="dl-k">Session Type</div><div class="dl-v">[e.g., Family Portrait]</div></div>
+      <div class="dl-row"><div class="dl-k">Date &amp; Time</div><div class="dl-v">[DATE / TIME]</div></div>
+      <div class="dl-row"><div class="dl-k">Location</div><div class="dl-v">[LOCATION]</div></div>
+      <div class="dl-row"><div class="dl-k">Package Booked</div><div class="dl-v">[Package name]</div></div>
+      <div class="dl-row"><div class="dl-k">Amount Paid</div><div class="dl-v">[$AMOUNT] retainer</div></div>
+      <div class="dl-row" style="margin-bottom: 0;"><div class="dl-k">Balance Due</div><div class="dl-v">[$AMOUNT] — due [on / before session day]</div></div>
+    </div>
+    <div class="group-title">What's Next</div>
+    <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Watch for your prep &amp; style guide a couple of weeks out.</div></div>
+    <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Complete your session questionnaire so I can plan for you: [link].</div></div>
+    <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Reach out anytime with questions — [email] / [phone].</div></div>
+    <div class="rule-terra"></div>
+    <div class="sig">Can't wait to work with you!</div>
+    <div class="sig-name">[Photographer Name]</div>
+    <div class="fineprint" style="font-size: 10px; margin-top: 18px;">Need to make a change? Contact me at [email / phone] as soon as possible.</div>
+  </div>
+</section>
+
+<!-- ============ PAGE 5 · SESSION REMINDER ============ -->
+<section class="page" data-document-role="page" data-label="Session Reminder">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Reminder · 05</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 116px; left: 72px; right: 72px;">
+    <div class="eyebrow">Almost Time</div>
+    <h1 class="display">Session <em>reminder</em></h1>
+    <div class="body-col" style="margin-bottom: 24px;">
+      <p>Hi [Name], your session is just a few days away — here's a quick recap so you're all set and relaxed:</p>
+    </div>
+    <div class="panel" style="margin-bottom: 26px;">
+      <div class="panel-title">The Essentials</div>
+      <div class="dl-row"><div class="dl-k">Date &amp; Time</div><div class="dl-v">[DATE / TIME]</div></div>
+      <div class="dl-row"><div class="dl-k">Location</div><div class="dl-v">[LOCATION]</div></div>
+      <div class="dl-row"><div class="dl-k">Parking / Meet At</div><div class="dl-v">[Parking &amp; arrival notes]</div></div>
+      <div class="dl-row" style="margin-bottom: 0;"><div class="dl-k">Weather Plan</div><div class="dl-v">[e.g., if it rains, I'll reach out by [time] to reschedule]</div></div>
+    </div>
+    <div class="group-title">A Few Quick Reminders</div>
+    <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Review the what-to-wear guide and lay outfits out the night before.</div></div>
+    <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Pack snacks, water, and a comfort item for the little ones.</div></div>
+    <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Arrive 5–10 minutes early so we can start relaxed.</div></div>
+    <div class="rule-terra"></div>
+    <div class="sig">See you soon!</div>
+    <div class="sig-name">[Photographer Name]</div>
+  </div>
+  <div class="disclaimer">This template is provided for general informational purposes only and does not constitute legal advice. You are responsible for reviewing, customizing, and ensuring it meets your state law and business requirements before use.</div>
+</section>
+</body>
+</html>

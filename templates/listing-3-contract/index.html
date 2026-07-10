@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!-- Listing 3 — Booking Contract & Releases · Model A design master
+     Clones Listing 1/2's locked design system.
+     Brand tokens (locked): ivory #F7F3EE · charcoal #3E3A34 · terracotta #C0876B · sand #EAE3D9 · taupe #A39A8D
+     Cormorant Garamond (display) + Lato (body) — both free Canva fonts
+     Import-safe: NO CSS border anywhere (hairlines/rules/boxes/signature lines = filled 1px divs); solid fills only.
+     LEGAL GUARDRAILS: standard disclaimer block included prominently + footer on every page.
+       Never labeled "legally binding" or "lawyer-approved." All clauses = plain-language editable [PLACEHOLDERS].
+     Pages annotated with data-document-role="page" for Canva import-design-from-url. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Booking Contract &amp; Releases — Listing 3 Master</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F7F3EE;
+    --ink: #3E3A34;
+    --terra: #C0876B;
+    --taupe: #A39A8D;
+    --sand: #EAE3D9;
+    --rule: #E0D8CC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #DED8CF; }
+  .page {
+    width: 816px;
+    height: 1056px;
+    background: var(--ivory);
+    position: relative;
+    overflow: hidden;
+    margin: 24px auto;
+    font-family: 'Lato', sans-serif;
+    color: var(--ink);
+  }
+  @media print {
+    html, body { background: none; }
+    .page { margin: 0; page-break-after: always; }
+  }
+  @page { size: 8.5in 11in; margin: 0; }
+
+  /* ---------- shared furniture (cloned from Listing 1/2) ---------- */
+  .masthead {
+    position: absolute; top: 44px; left: 72px; right: 72px;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .masthead .mh-left {
+    font-size: 8.5px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--taupe);
+  }
+  .masthead .mh-right {
+    font-size: 8.5px; font-weight: 400; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra);
+  }
+  .mh-rule { position: absolute; top: 66px; left: 72px; right: 72px; height: 1px; background: var(--rule); }
+  .eyebrow {
+    font-size: 10px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra);
+    margin-bottom: 18px;
+  }
+  h1.display {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500; font-size: 42px; line-height: 1.12;
+    letter-spacing: .01em; margin-bottom: 22px;
+  }
+  h1.display em { font-style: italic; font-weight: 500; color: var(--terra); }
+  .body-col { max-width: 560px; font-size: 12px; font-weight: 400; line-height: 1.75; }
+  .body-col p { margin-bottom: 12px; }
+  .rule-terra { width: 44px; height: 1px; background: var(--terra); margin: 22px 0; }
+  .fineprint { font-size: 10.5px; line-height: 1.8; color: var(--taupe); font-style: italic; }
+  .group-title {
+    font-size: 10px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra); margin: 0 0 12px;
+  }
+
+  /* placeholder / cover (cloned) */
+  .placeholder { background: var(--sand); display: flex; align-items: center; justify-content: center; }
+  .placeholder span {
+    font-size: 9px; font-weight: 700; letter-spacing: .35em;
+    text-transform: uppercase; color: var(--taupe);
+  }
+  .cover-hero { position: absolute; inset: 0; }
+  .cover-panel {
+    position: absolute; left: 118px; right: 118px; bottom: 96px;
+    background: var(--ivory); padding: 54px 60px 50px; text-align: center;
+  }
+  .cover-studio {
+    font-size: 11px; font-weight: 700; letter-spacing: .42em;
+    text-transform: uppercase; color: var(--ink); margin-bottom: 6px;
+  }
+  .cover-logo {
+    font-size: 8px; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--taupe); margin-bottom: 30px;
+  }
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 500;
+    font-size: 52px; line-height: 1.08; margin-bottom: 24px;
+  }
+  .cover-title em { font-style: italic; color: var(--terra); }
+  .cover-tag {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 17px; color: var(--taupe); margin-bottom: 26px;
+  }
+  .cover-year {
+    display: inline-block; font-size: 9.5px; font-weight: 700;
+    letter-spacing: .32em; text-transform: uppercase; color: var(--terra);
+  }
+  .cover-rule { width: 44px; height: 1px; background: var(--rule); margin: 0 auto 14px; }
+
+  /* sand panel */
+  .panel { background: var(--sand); padding: 26px 32px; }
+  .panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra); margin-bottom: 12px;
+  }
+
+  /* two columns + dashed list */
+  .cols { display: flex; gap: 48px; }
+  .col { flex: 1; }
+  .inc-item { display: flex; gap: 12px; align-items: baseline; margin-bottom: 9px; }
+  .inc-dash { width: 14px; height: 1px; background: var(--terra); flex: none; transform: translateY(-4px); }
+  .inc-text { font-size: 11.5px; line-height: 1.55; }
+
+  /* checkbox (cloned from Listing 4 — filled square, no border) */
+  .chk { display: flex; align-items: flex-start; gap: 11px; margin-bottom: 10px; }
+  .chk-box {
+    width: 13px; height: 13px; background: var(--terra); flex: none; margin-top: 1px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .chk-box-inner { width: 11px; height: 11px; background: var(--ivory); }
+  .chk-text { font-size: 11.5px; line-height: 1.5; }
+
+  /* ---------- clauses ---------- */
+  .clause { margin-bottom: 15px; }
+  .clause-h { display: flex; gap: 11px; align-items: baseline; margin-bottom: 5px; }
+  .clause-num {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 19px; color: var(--terra); flex: none; width: 20px; line-height: 1;
+  }
+  .clause-title { font-size: 10.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+  .clause-body { font-size: 11px; line-height: 1.6; margin-left: 31px; }
+  .clause-body b { font-weight: 700; }
+
+  /* ---------- form fields (write-on lines = filled 1px rules) ---------- */
+  .field { margin-bottom: 15px; }
+  .field-k { font-size: 8.5px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--taupe); margin-bottom: 7px; }
+  .field-line { height: 1px; background: var(--rule); }
+  .field-val { font-size: 11.5px; color: var(--ink); padding-bottom: 6px; }
+
+  /* signature block (lines = filled 1px divs) */
+  .sig-block { margin-top: 24px; }
+  .sig-row { display: flex; gap: 44px; margin-top: 26px; }
+  .sig-field { flex: 1; }
+  .sig-field-line { height: 1px; background: var(--ink); margin-bottom: 7px; }
+  .sig-field-label { font-size: 8px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--taupe); }
+  .sig-date { flex: none; width: 150px; }
+
+  .disclaimer {
+    position: absolute; left: 72px; right: 72px; bottom: 40px;
+    font-size: 7.5px; line-height: 1.6; color: var(--taupe); text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 · COVER ============ -->
+<section class="page" data-document-role="page" data-label="Cover">
+  <div class="cover-hero placeholder"><span>Hero Photo — Full Bleed</span></div>
+  <div class="cover-panel">
+    <div class="cover-studio">[Studio / Brand Name]</div>
+    <div class="cover-logo">· [logo] ·</div>
+    <div class="cover-title">Booking Contract <em>&amp; Releases</em></div>
+    <div class="cover-tag">A professional starting point for your client agreements</div>
+    <div class="cover-rule"></div>
+    <div class="cover-year">[Year]</div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 · SERVICES AGREEMENT (1 of 2) ============ -->
+<section class="page" data-document-role="page" data-label="Services Agreement 1">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Services Agreement · 02</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 116px; left: 72px; right: 72px;">
+    <div class="eyebrow">The Agreement</div>
+    <h1 class="display">Photography services <em>agreement</em></h1>
+    <div class="panel" style="margin-bottom: 22px;">
+      <div class="panel-title">Please Read First</div>
+      <div style="font-size: 10.5px; line-height: 1.65; color: var(--ink);">This template is provided for general informational purposes only and does not constitute legal advice. You are responsible for reviewing, customizing, and ensuring it meets your state law and business requirements before use. Enforceability and proper use of completed documents is the buyer's responsibility.</div>
+    </div>
+    <div class="body-col" style="margin-bottom: 18px;">
+      <p>This agreement is between <b>[Photographer / Studio Name]</b> ("Photographer") and <b>[Client Name(s)]</b> ("Client") for the photography session described below.</p>
+    </div>
+    <div class="clause">
+      <div class="clause-h"><div class="clause-num">1</div><div class="clause-title">Session Details</div></div>
+      <div class="clause-body">Session type: [e.g., family portrait] · Date &amp; time: [DATE / TIME] · Location: [LOCATION]. Deliverables: [#] professionally edited digital images in a private online gallery, delivered within [#] weeks.</div>
+    </div>
+    <div class="clause">
+      <div class="clause-h"><div class="clause-num">2</div><div class="clause-title">Fees &amp; Payment</div></div>
+      <div class="clause-body">Total session fee: <b>[$AMOUNT]</b>. A non-refundable retainer of [$AMOUNT / %] is due at booking to reserve the date. The remaining balance of [$AMOUNT] is due [on / before session day]. Accepted payment methods: [methods]. Late balances may [delay delivery / incur a [$] fee].</div>
+    </div>
+    <div class="clause">
+      <div class="clause-h"><div class="clause-num">3</div><div class="clause-title">Cancellation &amp; Rescheduling</div></div>
+      <div class="clause-body">If the Client cancels, the retainer is non-refundable. Rescheduling with at least [#] days' notice will be accommodated once, subject to availability, and the retainer transfers to the new date. If the Photographer must cancel due to illness or emergency, the Photographer will reschedule or refund all payments, including the retainer.</div>
+    </div>
+    <div class="clause">
+      <div class="clause-h"><div class="clause-num">4</div><div class="clause-title">Weather &amp; No-Show</div></div>
+      <div class="clause-body">For outdoor sessions affected by weather, both parties will reschedule to the next mutually available date at no extra charge. If the Client does not appear within [#] minutes without notice, the session is forfeited and the retainer is not refunded.</div>
+    </div>
+    <div class="fineprint" style="font-size: 9.5px; margin-top: 12px;">Continued on the next page →</div>
+  </div>
+  <div class="disclaimer">This template is provided for general informational purposes only and does not constitute legal advice. You are responsible for reviewing and adapting it to your state and business before use.</div>
+</section>
+
+<!-- ============ PAGE 3 · SERVICES AGREEMENT (2 of 2) + SIGNATURES ============ -->
+<section class="page" data-document-role="page" data-label="Services Agreement 2">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Services Agreement · 03</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 116px; left: 72px; right: 72px;">
+    <div class="eyebrow">The Agreement, Continued</div>
+    <div class="clause">
+      <div class="clause-h"><div class="clause-num">5</div><div class="clause-title">Copyright &amp; Usage</div></div>
+      <div class="clause-body">The Photographer retains full copyright to all images. Upon final payment, the Client receives a personal-use license to print and share the delivered images. Commercial use, resale, or altering of the images requires the Photographer's written consent. (See the accompanying Print &amp; Copyright Release.)</div>
+    </div>
+    <div class="clause">
+      <div class="clause-h"><div class="clause-num">6</div><div class="clause-title">Portfolio &amp; Marketing Use</div></div>
+      <div class="clause-body">The Client [grants / does not grant] the Photographer permission to use images from the session for portfolio, website, and marketing purposes. (See the accompanying Model Release.)</div>
+    </div>
+    <div class="clause">
+      <div class="clause-h"><div class="clause-num">7</div><div class="clause-title">Limitation of Liability</div></div>
+      <div class="clause-body">In the unlikely event of equipment failure, lost files, or other circumstances beyond the Photographer's control, the Photographer's liability is limited to a refund of amounts paid. Neither party is liable for failure to perform due to circumstances beyond their reasonable control.</div>
+    </div>
+    <div class="clause">
+      <div class="clause-h"><div class="clause-num">8</div><div class="clause-title">Image Delivery &amp; Archiving</div></div>
+      <div class="clause-body">Edited images are delivered via [online gallery] within [#] weeks of the session. The Photographer keeps files for [#] months after delivery as a courtesy; the Client is responsible for downloading and backing up their images.</div>
+    </div>
+    <div class="rule-terra"></div>
+    <div class="body-col" style="font-size: 11.5px;">
+      <p>By signing below, both parties acknowledge they have read, understood, and agree to the terms of this agreement.</p>
+    </div>
+    <div class="sig-block">
+      <div class="sig-row">
+        <div class="sig-field"><div class="sig-field-line"></div><div class="sig-field-label">Client Signature</div></div>
+        <div class="sig-field sig-date"><div class="sig-field-line"></div><div class="sig-field-label">Date</div></div>
+      </div>
+      <div class="sig-row">
+        <div class="sig-field"><div class="sig-field-line"></div><div class="sig-field-label">Photographer Signature</div></div>
+        <div class="sig-field sig-date"><div class="sig-field-line"></div><div class="sig-field-label">Date</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="disclaimer">This template is provided for general informational purposes only and does not constitute legal advice. You are responsible for reviewing and adapting it to your state and business before use.</div>
+</section>
+
+<!-- ============ PAGE 4 · MODEL RELEASE ============ -->
+<section class="page" data-document-role="page" data-label="Model Release">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Model Release · 04</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 116px; left: 72px; right: 72px;">
+    <div class="eyebrow">Release</div>
+    <h1 class="display">Model <em>release</em></h1>
+    <div class="body-col" style="font-size: 11.5px; margin-bottom: 22px;">
+      <p>I, <b>[Grantor / Client Name]</b> ("Grantor"), grant <b>[Photographer / Studio Name]</b> permission to use the photographs described below.</p>
+    </div>
+    <div class="cols" style="margin-bottom: 22px;">
+      <div class="col">
+        <div class="field"><div class="field-k">Grantor Name</div><div class="field-line"></div></div>
+        <div class="field"><div class="field-k">Guardian Name (if subject is a minor)</div><div class="field-line"></div></div>
+      </div>
+      <div class="col">
+        <div class="field"><div class="field-k">Description / Date of Images</div><div class="field-line"></div></div>
+        <div class="field"><div class="field-k">Photographer / Studio</div><div class="field-line"></div></div>
+      </div>
+    </div>
+    <div class="group-title">Scope of Permitted Use</div>
+    <div class="cols" style="margin-bottom: 20px;">
+      <div class="col">
+        <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Portfolio &amp; website</div></div>
+        <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Social media</div></div>
+        <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Marketing &amp; advertising</div></div>
+      </div>
+      <div class="col">
+        <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Competitions &amp; publications</div></div>
+        <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Third-party licensing</div></div>
+        <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Other: [specify]</div></div>
+      </div>
+    </div>
+    <div class="body-col" style="font-size: 11px;">
+      <p>The Grantor [has received / waives any claim to] compensation for this use, and releases the Photographer from any claims related to the use of these images as described above.</p>
+    </div>
+    <div class="panel" style="padding: 14px 22px; margin: 14px 0 0;">
+      <div style="font-size: 10.5px; line-height: 1.55; color: var(--ink);"><b>Note:</b> If the subject is under 18, a parent or legal guardian must sign this release.</div>
+    </div>
+    <div class="sig-block" style="margin-top: 20px;">
+      <div class="sig-row">
+        <div class="sig-field"><div class="sig-field-line"></div><div class="sig-field-label">Grantor / Guardian Signature</div></div>
+        <div class="sig-field sig-date"><div class="sig-field-line"></div><div class="sig-field-label">Date</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="disclaimer">This template is provided for general informational purposes only and does not constitute legal advice. You are responsible for reviewing and adapting it to your state and business before use.</div>
+</section>
+
+<!-- ============ PAGE 5 · PRINT & COPYRIGHT RELEASE ============ -->
+<section class="page" data-document-role="page" data-label="Print and Copyright Release">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Print &amp; Copyright Release · 05</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 116px; left: 72px; right: 72px;">
+    <div class="eyebrow">Release</div>
+    <h1 class="display">Print &amp; copyright <em>release</em></h1>
+    <div class="body-col" style="font-size: 11.5px; margin-bottom: 22px;">
+      <p>This release confirms the printing rights granted to the Client for images from the session referenced below.</p>
+    </div>
+    <div class="cols" style="margin-bottom: 22px;">
+      <div class="col">
+        <div class="field"><div class="field-k">Client Name</div><div class="field-line"></div></div>
+        <div class="field"><div class="field-k">Session Date / Reference</div><div class="field-line"></div></div>
+      </div>
+      <div class="col">
+        <div class="field"><div class="field-k">Photographer / Studio</div><div class="field-line"></div></div>
+        <div class="field"><div class="field-k">Valid Through</div><div class="field-line"></div></div>
+      </div>
+    </div>
+    <div class="body-col" style="font-size: 11.5px; margin-bottom: 20px;">
+      <p><b>[Photographer / Studio Name]</b> retains the copyright to all images. The Client is granted a personal-use license to print the delivered images at a lab of their choice.</p>
+    </div>
+    <div class="cols">
+      <div class="col">
+        <div class="group-title">You May</div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Print for personal use at any lab</div></div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Share digital copies with family &amp; friends</div></div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Display the images in your home</div></div>
+      </div>
+      <div class="col">
+        <div class="group-title">You May Not</div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Sell or license the images</div></div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Alter, edit, or apply filters</div></div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Enter them in contests as your own</div></div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Use them for any commercial purpose</div></div>
+      </div>
+    </div>
+    <div class="sig-block" style="margin-top: 22px;">
+      <div class="sig-row">
+        <div class="sig-field"><div class="sig-field-line"></div><div class="sig-field-label">Photographer Signature</div></div>
+        <div class="sig-field sig-date"><div class="sig-field-line"></div><div class="sig-field-label">Date</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="disclaimer">This template is provided for general informational purposes only and does not constitute legal advice. You are responsible for reviewing and adapting it to your state and business before use.</div>
+</section>
+
+<!-- ============ PAGE 6 · MINOR / CHILD PHOTO CONSENT ============ -->
+<section class="page" data-document-role="page" data-label="Minor Consent">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Minor Consent · 06</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 116px; left: 72px; right: 72px;">
+    <div class="eyebrow">Consent</div>
+    <h1 class="display">Minor photo <em>consent</em></h1>
+    <div class="body-col" style="font-size: 11.5px; margin-bottom: 22px;">
+      <p>This form authorizes the photography of the minor named below and consent to the agreed uses.</p>
+    </div>
+    <div class="cols" style="margin-bottom: 22px;">
+      <div class="col">
+        <div class="field"><div class="field-k">Child's Name</div><div class="field-line"></div></div>
+        <div class="field"><div class="field-k">Date of Birth</div><div class="field-line"></div></div>
+        <div class="field"><div class="field-k">Photographer / Studio</div><div class="field-line"></div></div>
+      </div>
+      <div class="col">
+        <div class="field"><div class="field-k">Parent / Guardian Name</div><div class="field-line"></div></div>
+        <div class="field"><div class="field-k">Relationship to Child</div><div class="field-line"></div></div>
+        <div class="field"><div class="field-k">Session Date</div><div class="field-line"></div></div>
+      </div>
+    </div>
+    <div class="group-title">I Confirm That</div>
+    <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">I consent to [Photographer / Studio Name] photographing my child during the session.</div></div>
+    <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">I consent to the uses described in the Model Release (portfolio, website, social, marketing).</div></div>
+    <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">I am the parent or legal guardian with authority to give this consent.</div></div>
+    <div class="sig-block" style="margin-top: 26px;">
+      <div class="sig-row">
+        <div class="sig-field"><div class="sig-field-line"></div><div class="sig-field-label">Parent / Guardian Signature</div></div>
+        <div class="sig-field sig-date"><div class="sig-field-line"></div><div class="sig-field-label">Date</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="disclaimer">This template is provided for general informational purposes only and does not constitute legal advice. You are responsible for reviewing, customizing, and ensuring it meets your state law and business requirements before use. Enforceability and proper use of completed documents is the buyer's responsibility.</div>
+</section>
+</body>
+</html>

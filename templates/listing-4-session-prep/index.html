@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!-- Listing 4 — Session Prep & Style Guide · Model A design master
+     Clones Listing 1/2's locked design system.
+     Brand tokens (locked): ivory #F7F3EE · charcoal #3E3A34 · terracotta #C0876B · sand #EAE3D9 · taupe #A39A8D
+     Cormorant Garamond (display) + Lato (body) — both free Canva fonts
+     Import-safe: NO CSS border anywhere (hairlines/boxes = filled 1px divs); solid fills only.
+     Checkboxes = terra-filled 13px square with an ivory inner square (1px outline effect, no border).
+     Pages annotated with data-document-role="page" for Canva import-design-from-url. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Session Prep &amp; Style Guide — Listing 4 Master</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F7F3EE;
+    --ink: #3E3A34;
+    --terra: #C0876B;
+    --taupe: #A39A8D;
+    --sand: #EAE3D9;
+    --rule: #E0D8CC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #DED8CF; }
+  .page {
+    width: 816px;
+    height: 1056px;
+    background: var(--ivory);
+    position: relative;
+    overflow: hidden;
+    margin: 24px auto;
+    font-family: 'Lato', sans-serif;
+    color: var(--ink);
+  }
+  @media print {
+    html, body { background: none; }
+    .page { margin: 0; page-break-after: always; }
+  }
+  @page { size: 8.5in 11in; margin: 0; }
+
+  /* ---------- shared furniture (cloned from Listing 1/2) ---------- */
+  .masthead {
+    position: absolute; top: 44px; left: 72px; right: 72px;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .masthead .mh-left {
+    font-size: 8.5px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--taupe);
+  }
+  .masthead .mh-right {
+    font-size: 8.5px; font-weight: 400; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra);
+  }
+  .mh-rule { position: absolute; top: 66px; left: 72px; right: 72px; height: 1px; background: var(--rule); }
+  .eyebrow {
+    font-size: 10px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra);
+    margin-bottom: 18px;
+  }
+  h1.display {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500; font-size: 46px; line-height: 1.12;
+    letter-spacing: .01em; margin-bottom: 26px;
+  }
+  h1.display em { font-style: italic; font-weight: 500; color: var(--terra); }
+  .body-col { max-width: 450px; font-size: 12.5px; font-weight: 400; line-height: 1.85; }
+  .body-col p { margin-bottom: 14px; }
+  .rule-terra { width: 44px; height: 1px; background: var(--terra); margin: 26px 0; }
+  .placeholder {
+    background: var(--sand);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .placeholder span {
+    font-size: 9px; font-weight: 700; letter-spacing: .35em;
+    text-transform: uppercase; color: var(--taupe);
+  }
+  .sig {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 22px; color: var(--ink);
+  }
+  .sig-name {
+    font-size: 11px; font-weight: 700; letter-spacing: .22em;
+    text-transform: uppercase; margin-top: 6px;
+  }
+  .fineprint { font-size: 10.5px; line-height: 1.8; color: var(--taupe); font-style: italic; }
+  .group-title {
+    font-size: 10px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra); margin: 0 0 14px;
+  }
+
+  /* dashed list (cloned from Listing 2 inc-item) */
+  .inc-item { display: flex; gap: 14px; align-items: baseline; margin-bottom: 12px; }
+  .inc-dash { width: 16px; height: 1px; background: var(--terra); flex: none; transform: translateY(-4px); }
+  .inc-text { font-size: 12.5px; line-height: 1.6; }
+
+  /* sand info panel */
+  .panel { background: var(--sand); padding: 30px 36px; }
+  .panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--terra); margin-bottom: 18px;
+  }
+
+  /* two columns */
+  .cols { display: flex; gap: 52px; }
+  .col { flex: 1; }
+
+  /* ---------- p1 cover (cloned) ---------- */
+  .cover-hero { position: absolute; inset: 0; }
+  .cover-panel {
+    position: absolute; left: 118px; right: 118px; bottom: 96px;
+    background: var(--ivory); padding: 54px 60px 50px; text-align: center;
+  }
+  .cover-studio {
+    font-size: 11px; font-weight: 700; letter-spacing: .42em;
+    text-transform: uppercase; color: var(--ink); margin-bottom: 6px;
+  }
+  .cover-logo {
+    font-size: 8px; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--taupe); margin-bottom: 30px;
+  }
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 500;
+    font-size: 54px; line-height: 1.08; margin-bottom: 24px;
+  }
+  .cover-title em { font-style: italic; color: var(--terra); }
+  .cover-tag {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 17px; color: var(--taupe); margin-bottom: 26px;
+  }
+  .cover-year {
+    display: inline-block; font-size: 9.5px; font-weight: 700;
+    letter-spacing: .32em; text-transform: uppercase; color: var(--terra);
+  }
+  .cover-rule { width: 44px; height: 1px; background: var(--rule); margin: 0 auto 14px; }
+
+  /* ---------- p2 what to wear ---------- */
+  .tip { margin-bottom: 18px; }
+  .tip-k {
+    font-size: 9px; font-weight: 700; letter-spacing: .24em;
+    text-transform: uppercase; color: var(--taupe); margin-bottom: 4px;
+  }
+  .tip-v { font-size: 12px; line-height: 1.6; }
+  .look-row { display: flex; gap: 16px; }
+  .look { flex: 1; height: 150px; }
+  .look-cap {
+    margin-top: 8px; text-align: center;
+    font-size: 8px; font-weight: 700; letter-spacing: .28em;
+    text-transform: uppercase; color: var(--taupe);
+  }
+
+  /* ---------- p3 checklist ---------- */
+  .chk { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 11px; }
+  .chk-box {
+    width: 13px; height: 13px; background: var(--terra); flex: none; margin-top: 2px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .chk-box-inner { width: 11px; height: 11px; background: var(--ivory); }
+  .chk-text { font-size: 12px; line-height: 1.5; }
+  .chk-group { margin-bottom: 30px; }
+
+  /* ---------- p5 timeline ---------- */
+  .steps { margin-top: 8px; }
+  .step { display: flex; gap: 30px; padding: 0 0 26px 0; }
+  .step-numwrap { width: 48px; flex: none; text-align: center; }
+  .step-num {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 32px; color: var(--terra); line-height: 1;
+  }
+  .step-when {
+    font-size: 8px; font-weight: 700; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--taupe); margin-top: 6px;
+  }
+  .step-body { padding-top: 3px; }
+  .step-title {
+    font-size: 11.5px; font-weight: 700; letter-spacing: .22em;
+    text-transform: uppercase; margin-bottom: 7px;
+  }
+  .step-text { font-size: 12px; line-height: 1.7; max-width: 440px; }
+
+  .disclaimer {
+    position: absolute; left: 72px; right: 72px; bottom: 40px;
+    font-size: 7.5px; line-height: 1.6; color: var(--taupe); text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 · COVER ============ -->
+<section class="page" data-document-role="page" data-label="Cover">
+  <div class="cover-hero placeholder"><span>Hero Photo — Full Bleed</span></div>
+  <div class="cover-panel">
+    <div class="cover-studio">[Studio / Brand Name]</div>
+    <div class="cover-logo">· [logo] ·</div>
+    <div class="cover-title">Session Prep &amp; <em>Style</em> Guide</div>
+    <div class="cover-tag">Everything you need to feel camera-ready</div>
+    <div class="cover-rule"></div>
+    <div class="cover-year">[Year]</div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 · WHAT TO WEAR ============ -->
+<section class="page" data-document-role="page" data-label="What to Wear">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Style Guide · 02</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 120px; left: 72px; right: 72px;">
+    <div class="eyebrow">Before Your Session</div>
+    <h1 class="display">What to <em>wear</em></h1>
+    <div class="body-col" style="max-width: 560px; margin-bottom: 30px;">
+      <p>The golden rule: <b>coordinate, don't match.</b> Pick a palette and let everyone pull from it — you'll look pulled-together without looking like a uniform. Start with one person's outfit, then build the rest of the family around those colors.</p>
+    </div>
+    <div class="cols" style="margin-bottom: 30px;">
+      <div class="col">
+        <div class="tip">
+          <div class="tip-k">Build Your Palette</div>
+          <div class="tip-v">Choose 2–3 complementary colors plus a soft neutral — cream, tan, denim, sage, or grey. Earthy, muted tones photograph beautifully.</div>
+        </div>
+        <div class="tip">
+          <div class="tip-k">Add Texture &amp; Layers</div>
+          <div class="tip-v">Knits, denim, linen, and lace add richness on camera. Cardigans, hats, and scarves give depth — and easy options mid-session.</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="tip">
+          <div class="tip-k">Dressing the Little Ones</div>
+          <div class="tip-v">Comfortable kids = happy photos. Skip brand-new shoes and anything itchy. Bring a backup outfit for spills.</div>
+        </div>
+        <div class="tip">
+          <div class="tip-k">Season &amp; Location</div>
+          <div class="tip-v">Dress for the setting and the weather — [e.g., warm layers for autumn fields, lighter linens for the beach]. Comfort reads as confidence.</div>
+        </div>
+      </div>
+    </div>
+    <div class="panel" style="margin-bottom: 30px;">
+      <div class="panel-title">A Few Things to Avoid</div>
+      <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Large logos, cartoon characters, or bright neons that pull the eye.</div></div>
+      <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">All-white or all-black head to toe — it tends to flatten in photos.</div></div>
+      <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Busy patterns on more than one person — pick one "statement" piece.</div></div>
+    </div>
+    <div class="look-row">
+      <div><div class="look placeholder"><span>Look 01</span></div><div class="look-cap">Neutrals &amp; Denim</div></div>
+      <div><div class="look placeholder"><span>Look 02</span></div><div class="look-cap">Earth Tones</div></div>
+      <div><div class="look placeholder"><span>Look 03</span></div><div class="look-cap">Soft &amp; Layered</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 3 · PREP CHECKLIST ============ -->
+<section class="page" data-document-role="page" data-label="Prep Checklist">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Prep Checklist · 03</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 120px; left: 72px; right: 72px;">
+    <div class="eyebrow">Get Ready</div>
+    <h1 class="display">Session prep <em>checklist</em></h1>
+    <div class="body-col" style="max-width: 560px; margin-bottom: 34px;">
+      <p>A little planning makes session day feel easy. Work through this in the week leading up, and arrive relaxed and ready.</p>
+    </div>
+    <div class="cols">
+      <div class="col">
+        <div class="chk-group">
+          <div class="group-title">One Week Before</div>
+          <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Finalize and lay out everyone's outfits</div></div>
+          <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Book any haircuts or trims (3–4 days ahead)</div></div>
+          <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Confirm the date, time, and location</div></div>
+          <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Send me any questions or must-have shots</div></div>
+        </div>
+        <div class="chk-group">
+          <div class="group-title">The Day Before</div>
+          <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Steam or iron outfits and set them aside</div></div>
+          <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Get everyone to bed early</div></div>
+          <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Hydrate — rested, watered skin photographs best</div></div>
+          <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Pack snacks, wipes, and a favorite toy</div></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="chk-group">
+          <div class="group-title">The Morning Of</div>
+          <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Eat a good meal; pack non-messy snacks</div></div>
+          <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Bring water and any touch-up makeup</div></div>
+          <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Wipe little faces and hands before we start</div></div>
+          <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Arrive 5–10 minutes early to settle in</div></div>
+        </div>
+        <div class="chk-group">
+          <div class="group-title">Leave at Home</div>
+          <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Pressure for "perfect" — candid beats posed</div></div>
+          <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Hair ties on wrists (they show in photos)</div></div>
+          <div class="chk"><div class="chk-box"><div class="chk-box-inner"></div></div><div class="chk-text">Temporary tattoos, face paint, and marker</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 4 · WHAT TO BRING / LOCATION ============ -->
+<section class="page" data-document-role="page" data-label="What to Bring">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">What to Bring · 04</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 120px; left: 72px; right: 72px;">
+    <div class="eyebrow">Day-Of Details</div>
+    <h1 class="display">What to bring &amp; <em>where to go</em></h1>
+    <div class="cols" style="margin-top: 6px;">
+      <div class="col">
+        <div class="group-title">Pack This</div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Water and non-messy snacks for everyone</div></div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">A comfort item or small toy for littles</div></div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Touch-up makeup, hairbrush, and wipes</div></div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">A backup outfit or two for spills</div></div>
+        <div class="inc-item"><div class="inc-dash"></div><div class="inc-text">Any props that mean something to you</div></div>
+        <div class="rule-terra"></div>
+        <div class="group-title">If You're Running Late</div>
+        <div class="body-col" style="font-size: 12px;">
+          <p>Please text me at <b>[phone]</b> — no stress. We'll use every minute we have, and light is our main clock, so a heads-up helps me adjust.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="panel">
+          <div class="panel-title">Location &amp; Arrival</div>
+          <div class="tip">
+            <div class="tip-k">Where We're Meeting</div>
+            <div class="tip-v">[Location name &amp; address]</div>
+          </div>
+          <div class="tip">
+            <div class="tip-k">Parking</div>
+            <div class="tip-v">[Parking notes — e.g., free lot off Main St; meet by the stone entrance]</div>
+          </div>
+          <div class="tip">
+            <div class="tip-k">Look For</div>
+            <div class="tip-v">[Landmark / where I'll be standing]</div>
+          </div>
+          <div class="tip" style="margin-bottom: 0;">
+            <div class="tip-k">Weather Backup</div>
+            <div class="tip-v">[Plan B — e.g., if it rains we'll reschedule to the next available evening; I'll reach out by [time] that morning.]</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 5 · SESSION-DAY TIMELINE ============ -->
+<section class="page" data-document-role="page" data-label="Session Timeline">
+  <div class="masthead">
+    <span class="mh-left">[Studio / Brand Name]</span>
+    <span class="mh-right">Session Day · 05</span>
+  </div>
+  <div class="mh-rule"></div>
+  <div style="position: absolute; top: 120px; left: 72px; right: 72px;">
+    <div class="eyebrow">What to Expect</div>
+    <h1 class="display">Your session, <em>hour by hour</em></h1>
+    <div class="body-col" style="max-width: 560px; margin-bottom: 28px;">
+      <p>Here's how a typical session flows. I direct with easy prompts — no stiff "everybody say cheese" — so we can catch the real, in-between moments.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-numwrap"><div class="step-num">1</div><div class="step-when">First 10 min</div></div>
+        <div class="step-body">
+          <div class="step-title">Arrival &amp; Hello</div>
+          <div class="step-text">We meet, get comfortable, and let the kids explore a little. No jumping straight into "smile!" — we ease in.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-numwrap"><div class="step-num">2</div><div class="step-when">Next 15 min</div></div>
+        <div class="step-body">
+          <div class="step-title">Warm-Up</div>
+          <div class="step-text">A few playful prompts to loosen everyone up. This is usually where the first real smiles show up.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-numwrap"><div class="step-num">3</div><div class="step-when">About 20 min</div></div>
+        <div class="step-body">
+          <div class="step-title">Posed &amp; Together</div>
+          <div class="step-text">The classic everyone-looking shots and family groupings, captured while attention is fresh.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-numwrap"><div class="step-num">4</div><div class="step-when">About 15 min</div></div>
+        <div class="step-body">
+          <div class="step-title">Candid &amp; Play</div>
+          <div class="step-text">Games, walking, tickles. The frames you'll love most usually come from right here.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-numwrap"><div class="step-num">5</div><div class="step-when">Last 5 min</div></div>
+        <div class="step-body">
+          <div class="step-title">Wrap &amp; What's Next</div>
+          <div class="step-text">We finish relaxed. Your beautifully edited online gallery arrives within [#] weeks.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="disclaimer">This template is provided for general informational purposes only and does not constitute legal advice. You are responsible for reviewing, customizing, and ensuring it meets your state law and business requirements before use.</div>
+</section>
+</body>
+</html>
