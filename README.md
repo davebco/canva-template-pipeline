@@ -11,9 +11,11 @@ Claude designs each listing as brand-styled HTML; this repo renders it for revie
 4. **Import into Canva** — host the approved HTML at a public HTTPS URL, then Canva MCP `import-design-from-url` converts it into an editable multi-page Canva design (text → real text boxes; fonts map because both families exist in Canva's free library). *Gate: the file must be public before import — confirm hosting with Dave.*
 5. **Finish in Canva (manual, small)** — verify font/layout fidelity, swap placeholder rects for Canva photo frames, then share as a **template link** for Etsy delivery.
 
-## Import-safe HTML rules
+## Import-safe HTML rules (validated 2026-07-10 on design DAHPAvnDqBE)
 
-- Solid fills and 1px borders only — no gradients, shadows, pseudo-element content, or JS.
+- Solid fills only — no gradients, shadows, pseudo-element content, or JS.
+- **No CSS `border` anywhere — Canva's import silently drops borders.** Draw every hairline/rule/outline as a filled 1px div; use background-filled panels instead of outlined boxes.
+- Import URL must serve `Content-Type: text/html` — GitHub Pages works; `raw.githubusercontent.com` does NOT (text/plain + nosniff → "unsupported format"). Full `<!DOCTYPE html><html><head><body>` skeleton required.
 - Fonts referenced by family name; both must exist in Canva's free font library.
 - One top-level element per page, never nested; fixed pixel dimensions (816×1056 = US Letter @96dpi).
 - Placeholder images = flat `--sand` rects with a small-caps label the buyer replaces.
