@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--
+  Buyer-delivery one-pager for Listing 3 (Booking Contract & Releases). Filled from templates/delivery/index.html.
+  Rendered straight to PDF by build.py: py build.py delivery-listing-3-contract
+  Legal set, so the .legal disclaimer block is KEPT.
+-->
+<title>Template Delivery</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F7F3EE; --charcoal:#3E3A34; --terracotta:#C0876B;
+    --sand:#EAE3D9; --taupe:#A39A8D;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  @page{size:816px 1056px;margin:0;}
+  body{font-family:'Lato',sans-serif;color:var(--charcoal);}
+  .page{width:816px;height:1056px;background:var(--ivory);position:relative;
+        padding:84px 92px;display:flex;flex-direction:column;}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--terracotta);}
+  .masthead{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:.02em;color:var(--charcoal);margin-top:4px;}
+  .rule{height:1px;background:var(--taupe);opacity:.5;margin:18px 0 32px;}
+  h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:46px;line-height:1.05;margin-bottom:10px;}
+  h1 em{font-style:italic;color:var(--terracotta);}
+  .lede{font-size:15px;line-height:1.6;color:var(--charcoal);max-width:560px;margin-bottom:28px;}
+  .btn{display:inline-block;background:var(--terracotta);color:var(--ivory);text-decoration:none;
+       font-weight:700;font-size:15px;letter-spacing:.02em;padding:18px 40px;border-radius:2px;}
+  .btn-note{font-size:12px;color:var(--taupe);margin-top:12px;}
+  .steps{margin:30px 0 0;}
+  .steps h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;margin-bottom:18px;}
+  .step{display:flex;gap:18px;margin-bottom:14px;align-items:flex-start;}
+  .num{flex:none;width:30px;height:30px;background:var(--sand);border-radius:50%;
+       font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--charcoal);
+       display:flex;align-items:center;justify-content:center;margin-top:1px;}
+  .step-t{font-size:14px;line-height:1.55;}
+  .step-t b{font-weight:700;}
+  .panel{background:var(--sand);padding:24px 30px;margin-top:auto;}
+  .panel .eyebrow{margin-bottom:12px;}
+  .panel ul{list-style:none;font-size:12.5px;line-height:1.8;}
+  .panel li::before{content:"—";color:var(--terracotta);margin-right:10px;}
+  .legal{font-size:10.5px;line-height:1.5;color:var(--taupe);margin-top:20px;font-style:italic;}
+  .foot{font-size:12px;color:var(--taupe);margin-top:18px;}
+  .foot a{color:var(--terracotta);text-decoration:none;}
+</style>
+</head>
+<body>
+<section class="page">
+  <div class="eyebrow">Thank you for your purchase</div>
+  <div class="masthead">TemplateStudio <span style="color:var(--terracotta);">by QB</span></div>
+  <div class="rule"></div>
+
+  <h1>Your <em>Booking Contract &amp; Releases</em><br>are ready</h1>
+  <p class="lede">Everything is editable in Canva — swap in your studio details, colors, and wording,
+     then send it to your clients. No design skills needed, and a free Canva account works.</p>
+
+  <a class="btn" href="https://canva.link/7fi77u9hebdxyxj">Open your Canva template &nbsp;&rarr;</a>
+  <div class="btn-note">If the button doesn't open, copy this link into your browser: https://canva.link/7fi77u9hebdxyxj</div>
+
+  <div class="steps">
+    <h2>How to use your template</h2>
+    <div class="step"><div class="num">1</div><div class="step-t"><b>Click the button above.</b> It opens the template in Canva and prompts you to make your own copy.</div></div>
+    <div class="step"><div class="num">2</div><div class="step-t"><b>Click "Use template."</b> A private, editable copy is added to your Canva account — the original stays untouched.</div></div>
+    <div class="step"><div class="num">3</div><div class="step-t"><b>Make it yours.</b> Fill in your studio name, terms, and details, and swap colors/fonts to match your brand.</div></div>
+    <div class="step"><div class="num">4</div><div class="step-t"><b>Download or share.</b> Export as PDF to sign and send, or share it digitally with your clients.</div></div>
+  </div>
+
+  <div class="panel">
+    <div class="eyebrow">Good to know</div>
+    <ul>
+      <li>Works on a free Canva account — this template uses only free elements.</li>
+      <li>For personal/business use by the purchaser. Please don't resell or share the template itself.</li>
+      <li>Questions or a broken link? Email <b>dave@quantum-blue.co</b> — happy to help.</li>
+    </ul>
+  </div>
+
+  <div class="legal">This template is provided for general informational purposes only and does not constitute legal advice. You are responsible for reviewing, customizing, and ensuring it meets your state law and business requirements before use.</div>
+
+  <div class="foot">TemplateStudio by QB · <a href="mailto:dave@quantum-blue.co">dave@quantum-blue.co</a></div>
+</section>
+</body>
+</html>

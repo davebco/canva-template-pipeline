@@ -159,6 +159,27 @@ CONFIGS = {
         ],
         "thumbs": [2, 4, 6],
     },
+    7: {  # bundle — "pages" are the 6 individual set covers (l7-final/page-01..06)
+        "pages": 6,
+        "cover_sub": "Editable Canva Template Bundle &nbsp;&middot;&nbsp; The Complete Photographer Kit",
+        "grid": ("What's included", "All <em>6 sets</em> in one kit",
+                 "~14 editable templates across your entire client workflow."),
+        "closeups": [
+            {"page": 1, "eyebrow": "Inquiry to delivery", "h2": "Your whole <em>workflow</em>",
+             "features": [
+                 ("Six coordinated sets", "Welcome, pricing, contract, prep, inquiry, delivery."),
+                 ("One cohesive look", "Shared fonts, colors, and layout throughout."),
+                 ("Swap once, done", "Change your palette and it flows across the kit."),
+             ]},
+            {"page": 6, "eyebrow": "Built to convert", "h2": "Book, wow, <em>rebook</em>",
+             "features": [
+                 ("Win the booking", "Welcome + pricing turn inquiries into sessions."),
+                 ("Run it smoothly", "Contracts + prep set clear expectations."),
+                 ("Keep them coming back", "Delivery + care drive reorders and referrals."),
+             ]},
+        ],
+        "thumbs": [1, 3, 5],
+    },
 }
 
 
@@ -345,8 +366,8 @@ def build(listing: int, closeup_override=None, pages_dir=None):
 
 def main():
     p = argparse.ArgumentParser(description="Etsy listing mockups (per listing)")
-    p.add_argument("listing", type=int, choices=range(1, 7),
-                   help="listing number 1-6 (selects CONFIGS + out/l{N}-final)")
+    p.add_argument("listing", type=int, choices=range(1, 8),
+                   help="listing number 1-7 (selects CONFIGS + out/l{N}-final; 7 = bundle)")
     p.add_argument("--closeups", help="override the two close-up page numbers, e.g. 2,3")
     p.add_argument("--pages-dir", dest="pages_dir",
                    help="override the page-PNG source dir (default out/l{N}-final)")
