@@ -47,3 +47,11 @@ def test_load_and_list(tmp_path, monkeypatch):
 def test_load_missing():
     with pytest.raises(FileNotFoundError):
         kitlib.load_kit("nope-not-here")
+
+def test_photographer_family_manifest_valid():
+    kit = kitlib.load_kit("photographer-family")   # raises if invalid
+    assert len(kit["listings"]) == 6
+    assert kit["bundle"]["price"] == 72
+    l3 = next(l for l in kit["listings"] if l["n"] == 3)
+    assert l3["keep_legal"] is True
+    assert all(l["template_link"].startswith("https://canva.link/") for l in kit["listings"])
