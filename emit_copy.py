@@ -4,7 +4,6 @@ Usage: py emit_copy.py <slug> [--specs-dir out/specs]
 import sys
 import json
 import argparse
-from pathlib import Path
 from kitlib import load_kit, ROOT
 
 AI_LINE = "Designed by me using AI tools based on my own creative direction."
@@ -57,6 +56,7 @@ def _paths_for(n_or_bundle) -> tuple[list[str], str]:
 
 
 def main() -> None:
+    sys.stdout.reconfigure(encoding="utf-8")
     p = argparse.ArgumentParser()
     p.add_argument("slug")
     p.add_argument("--specs-dir", default="out/specs")
