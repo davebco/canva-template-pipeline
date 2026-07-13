@@ -5,15 +5,17 @@ composes 6 brand-styled 2000x2000 marketing images via headless Chrome.
 Output: out/mockups/l{N}/img-N-*.png
 
 Per-listing content (cover subtitle, grid headline, the two close-up pages and
-their feature copy, and the Canva-thumb pages) lives in CONFIGS below — add or
-tweak an entry there, never in the slide code. The visual system (fonts, colors,
-layout) is shared across all listings so the whole shop looks like one brand.
+their feature copy, and the Canva-thumb pages) lives in each listing's `mockup`
+object in the kit manifest (kits/<slug>/kit.json) — add or tweak an entry
+there, never in the slide code. The visual system (fonts, colors, layout) is
+shared across all listings so the whole shop looks like one brand.
 
 Usage:
-    py build_mockups.py <listing 1-6> [--closeups A,B] [--pages-dir DIR]
+    py build_mockups.py <slug> <listing 1-6 | bundle> [--closeups A,B] [--pages-dir DIR]
 
-    py build_mockups.py 2                 # uses CONFIGS[2], pages from out/l2-final
-    py build_mockups.py 4 --closeups 2,3  # override the two close-up page numbers
+    py build_mockups.py photographer-family 2       # pages from out/l2-final
+    py build_mockups.py photographer-family 4 --closeups 2,3
+    py build_mockups.py photographer-family bundle  # 6-cover montage
 
 Prereq: the listing's pages must be exported to out/l{N}-final/page-01.png ...
 (via Canva MCP export-design, PNG, width 1632 height 2112). Listing 1 already has
@@ -24,163 +26,44 @@ import argparse
 import subprocess
 from pathlib import Path
 
+from kitlib import load_kit
+
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 ROOT = Path(__file__).parent
 
 
-# ---- per-listing content -------------------------------------------------
-# Each: pages (count), cover_sub, grid (eyebrow, h2_html, sub),
-#       closeups = [ {page, eyebrow, h2_html, features:[(bold, sub) x3]} x2 ],
-#       thumbs = 3 page numbers for the "editable in Canva" slide.
-CONFIGS = {
-    1: {
-        "pages": 9,
-        "cover_sub": "Editable Canva Template &nbsp;&middot;&nbsp; Family &amp; Portrait Photographers",
-        "grid": ("What's inside", "A complete <em>9-page</em> guide",
-                 "Everything a client needs — from first hello to booked session."),
-        "closeups": [
-            {"page": 3, "eyebrow": "Fully editable", "h2": "Make it <em>your own</em>",
-             "features": [
-                 ("Your headshot &amp; photos", "Drop your images into every frame."),
-                 ("Your story &amp; style", "Rewrite the bio and welcome in your voice."),
-                 ("Your brand colors &amp; fonts", "Match your look in a few clicks."),
-             ]},
-            {"page": 6, "eyebrow": "Set expectations", "h2": "Answer every <em>question</em>",
-             "features": [
-                 ("Pre-written Q&amp;A", "Editable answers to the questions you hear most."),
-                 ("Fewer back-and-forth emails", "Clients arrive prepared and confident."),
-                 ("A polished first impression", "Look booked-out and professional from hello."),
-             ]},
-        ],
-        "thumbs": [2, 5, 8],
-    },
-    2: {
-        "pages": 5,
-        "cover_sub": "Editable Canva Template &nbsp;&middot;&nbsp; Photographer Pricing &amp; Investment",
-        "grid": ("What's inside", "A complete <em>pricing</em> set",
-                 "Present prices so clients self-select the right package."),
-        "closeups": [
-            {"page": 2, "eyebrow": "Frame the value", "h2": "Sell your <em>packages</em>",
-             "features": [
-                 ("Tiered package guide", "Mini · Signature · Deluxe, value-framed."),
-                 ("A 'most popular' highlight", "Nudge clients toward the middle tier."),
-                 ("Your prices, your brand", "Swap in figures, colors, and fonts."),
-             ]},
-            {"page": 3, "eyebrow": "Every price, one place", "h2": "Clear <em>price lists</em>",
-             "features": [
-                 ("À la carte list", "Clean, itemized session pricing."),
-                 ("Print &amp; product menu", "Prints, wall art, albums, digital add-ons."),
-                 ("Editable in minutes", "Update prices any season in Canva."),
-             ]},
-        ],
-        "thumbs": [2, 3, 4],
-    },
-    3: {
-        "pages": 6,
-        "cover_sub": "Editable Canva Template &nbsp;&middot;&nbsp; Photography Booking Paperwork",
-        "grid": ("What's inside", "The <em>paperwork</em> every session needs",
-                 "A clean, editable starting point — customize to your business and state."),
-        "closeups": [
-            {"page": 2, "eyebrow": "Look professional", "h2": "A clear <em>agreement</em>",
-             "features": [
-                 ("Session, fees &amp; retainer", "Spell out what's booked and what's due."),
-                 ("Cancellation &amp; weather", "Set reschedule and no-show terms up front."),
-                 ("Copyright &amp; usage", "Define delivery and how images may be used."),
-             ]},
-            {"page": 3, "eyebrow": "Cover the essentials", "h2": "Releases &amp; <em>consent</em>",
-             "features": [
-                 ("Model release", "Scope-of-use checkboxes and sign-off."),
-                 ("Print &amp; copyright release", "The personal-use license labs ask for."),
-                 ("Minor photo consent", "Guardian consent for photographing children."),
-             ]},
-        ],
-        "thumbs": [2, 4, 6],
-    },
-    4: {
-        "pages": 5,
-        "cover_sub": "Editable Canva Template &nbsp;&middot;&nbsp; Client Session Prep &amp; Style",
-        "grid": ("What's inside", "Everything to send <em>after booking</em>",
-                 "Turn nervous clients into camera-ready ones."),
-        "closeups": [
-            {"page": 2, "eyebrow": "Camera-ready clients", "h2": "A <em>what-to-wear</em> guide",
-             "features": [
-                 ("Coordinate, don't match", "Palettes and combos that photograph well."),
-                 ("Outfit 'look' examples", "Three styled looks to inspire clients."),
-                 ("Dressing the kids", "Simple tips for the whole family."),
-             ]},
-            {"page": 3, "eyebrow": "Smoother sessions", "h2": "Prep &amp; <em>timeline</em>",
-             "features": [
-                 ("Countdown checklist", "Week-before to morning-of steps."),
-                 ("Bring list &amp; location notes", "Parking, arrival, and weather backups."),
-                 ("Session-day timeline", "Hour-by-hour of what to expect."),
-             ]},
-        ],
-        "thumbs": [2, 3, 4],
-    },
-    5: {
-        "pages": 5,
-        "cover_sub": "Editable Canva Template &nbsp;&middot;&nbsp; Photographer Client Onboarding",
-        "grid": ("What's inside", "Onboard every <em>new client</em>",
-                 "Answer inquiries in seconds and never miss a detail."),
-        "closeups": [
-            {"page": 2, "eyebrow": "Know before you shoot", "h2": "A client <em>questionnaire</em>",
-             "features": [
-                 ("Who's being photographed", "Occasion, group, and must-have shots."),
-                 ("Style &amp; vibe", "Capture the look each client wants."),
-                 ("Everything in one form", "No detail lost between emails."),
-             ]},
-            {"page": 3, "eyebrow": "Reply in seconds", "h2": "Ready-to-send <em>emails</em>",
-             "features": [
-                 ("3 inquiry scripts", "Initial reply, follow-up, referral-out."),
-                 ("Booking confirmation", "Date, location, package, balance, next steps."),
-                 ("Session reminder", "Arrival, what-to-wear, and weather notes."),
-             ]},
-        ],
-        "thumbs": [2, 3, 4],
-    },
-    6: {
-        "pages": 6,
-        "cover_sub": "Editable Canva Template &nbsp;&middot;&nbsp; Client Delivery &amp; Follow-Up",
-        "grid": ("What's inside", "A polished <em>goodbye</em>",
-                 "Turn one session into repeat bookings and referrals."),
-        "closeups": [
-            {"page": 2, "eyebrow": "Wow at delivery", "h2": "A gallery-ready <em>send-off</em>",
-             "features": [
-                 ("'Your gallery is ready'", "Link, download, and print instructions."),
-                 ("Heartfelt thank-you card", "Optional future-session credit built in."),
-                 ("Keep it on brand", "Add your colors, links, and offers."),
-             ]},
-            {"page": 3, "eyebrow": "Repeat &amp; refer", "h2": "Reorders &amp; <em>referrals</em>",
-             "features": [
-                 ("Print-reorder guide", "Why pro prints, plus a product menu."),
-                 ("Review request", "Friendly ask with direct-link slots."),
-                 ("Referral card", "An incentive that drives new bookings."),
-             ]},
-        ],
-        "thumbs": [2, 4, 6],
-    },
-    7: {  # bundle — "pages" are the 6 individual set covers (l7-final/page-01..06)
-        "pages": 6,
-        "cover_sub": "Editable Canva Template Bundle &nbsp;&middot;&nbsp; The Complete Photographer Kit",
-        "grid": ("What's included", "All <em>6 sets</em> in one kit",
-                 "~14 editable templates across your entire client workflow."),
-        "closeups": [
-            {"page": 1, "eyebrow": "Inquiry to delivery", "h2": "Your whole <em>workflow</em>",
-             "features": [
-                 ("Six coordinated sets", "Welcome, pricing, contract, prep, inquiry, delivery."),
-                 ("One cohesive look", "Shared fonts, colors, and layout throughout."),
-                 ("Swap once, done", "Change your palette and it flows across the kit."),
-             ]},
-            {"page": 6, "eyebrow": "Built to convert", "h2": "Book, wow, <em>rebook</em>",
-             "features": [
-                 ("Win the booking", "Welcome + pricing turn inquiries into sessions."),
-                 ("Run it smoothly", "Contracts + prep set clear expectations."),
-                 ("Keep them coming back", "Delivery + care drive reorders and referrals."),
-             ]},
-        ],
-        "thumbs": [1, 3, 5],
-    },
-}
+def resolve_mockup(kit: dict, target: str):
+    """Return (cfg, pages) for a listing number or 'bundle'."""
+    if target == "bundle":
+        return kit["bundle"]["mockup"], 6          # pages = the 6 set covers
+    L = next(l for l in kit["listings"] if l["n"] == int(target))
+    return L["mockup"], L["pages"]
+
+
+def montage_html(kit: dict, cover_uris: list[str]) -> str:
+    b = kit["brand"]
+    imgs = "\n".join(f'<img src="{u}">' for u in cover_uris)
+    name = kit["bundle"]["name"].replace(" Kit", " <em>Kit</em>")
+    return f"""<!DOCTYPE html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{{--ivory:{b['ivory']};--terracotta:#C0876B;--charcoal:#3E3A34;--taupe:#A39A8D;}}
+  *{{margin:0;padding:0;box-sizing:border-box;}}
+  html,body{{width:2000px;height:2000px;overflow:hidden;}}
+  body{{font-family:'Lato',sans-serif;color:var(--charcoal);background:var(--ivory);
+       display:flex;flex-direction:column;align-items:center;justify-content:center;padding:110px 130px;}}
+  .eyebrow{{font-weight:900;font-size:26px;letter-spacing:.42em;text-transform:uppercase;color:var(--terracotta);margin-bottom:26px;}}
+  h1{{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:118px;line-height:1.0;text-align:center;}}
+  h1 em{{font-style:italic;color:var(--terracotta);}}
+  .sub{{font-size:34px;color:var(--taupe);margin-top:26px;}}
+  .grid{{display:grid;grid-template-columns:repeat(3,486px);gap:46px;margin-top:80px;}}
+  .grid img{{width:486px;border-radius:6px;box-shadow:0 34px 74px rgba(62,58,52,.20);}}
+</style></head><body>
+  <div class="eyebrow">TemplateStudio &nbsp;&middot;&nbsp; by QB</div>
+  <h1>{name}</h1>
+  <div class="sub">All 6 editable Canva sets &nbsp;&middot;&nbsp; ~14 templates &nbsp;&middot;&nbsp; save 36%</div>
+  <div class="grid">{imgs}</div>
+</body></html>"""
 
 
 BASE = """<!DOCTYPE html><html><head><meta charset="utf-8">
@@ -206,16 +89,16 @@ def _feature_html(features):
         for b, s in features)
 
 
-def build(listing: int, closeup_override=None, pages_dir=None):
-    cfg = CONFIGS[listing]
-    pages = cfg["pages"]
-    src = Path(pages_dir).resolve() if pages_dir else (ROOT / "out" / f"l{listing}-final").resolve()
-    out = ROOT / "out" / "mockups" / f"l{listing}"
+def build(kit, target, closeup_override=None, pages_dir=None):
+    cfg, pages = resolve_mockup(kit, target)
+    label = "l7" if target == "bundle" else f"l{target}"
+    src = Path(pages_dir).resolve() if pages_dir else (ROOT / "out" / f"{label}-final").resolve()
+    out = ROOT / "out" / "mockups" / label
     out.mkdir(parents=True, exist_ok=True)
 
     if not src.exists():
         sys.exit(f"Pages not found: {src}\n"
-                 f"Export the finished Listing {listing} design to that folder first "
+                 f"Export the finished Listing {target} design to that folder first "
                  f"(Canva MCP export-design -> page-01.png ...).")
 
     def page(n: int) -> str:
@@ -361,26 +244,28 @@ def build(listing: int, closeup_override=None, pages_dir=None):
             "--virtual-time-budget=12000", f"--screenshot={png}", f.resolve().as_uri(),
         ], check=True, capture_output=True)
         print(png.name)
+
+    if target == "bundle":
+        cover_uris = [(src / f"page-{i:02d}.png").as_uri() for i in range(1, 7)]
+        (out / "img-1-cover.html").write_text(montage_html(kit, cover_uris), encoding="utf-8")
+        subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
+                        "--force-device-scale-factor=1", "--window-size=2000,2000",
+                        "--virtual-time-budget=15000",
+                        f"--screenshot={out / 'img-1-cover.png'}",
+                        (out / "img-1-cover.html").resolve().as_uri()],
+                       check=True, capture_output=True)
     print("done ->", out)
 
 
 def main():
-    p = argparse.ArgumentParser(description="Etsy listing mockups (per listing)")
-    p.add_argument("listing", type=int, choices=range(1, 8),
-                   help="listing number 1-7 (selects CONFIGS + out/l{N}-final; 7 = bundle)")
-    p.add_argument("--closeups", help="override the two close-up page numbers, e.g. 2,3")
-    p.add_argument("--pages-dir", dest="pages_dir",
-                   help="override the page-PNG source dir (default out/l{N}-final)")
+    p = argparse.ArgumentParser(description="Etsy listing mockups (manifest-driven)")
+    p.add_argument("slug")
+    p.add_argument("target", help="listing number or 'bundle'")
+    p.add_argument("--closeups")
+    p.add_argument("--pages-dir", dest="pages_dir")
     args = p.parse_args()
-
-    override = None
-    if args.closeups:
-        parts = [int(x) for x in args.closeups.split(",")]
-        if len(parts) != 2:
-            sys.exit("--closeups needs exactly two page numbers, e.g. 2,3")
-        override = parts
-
-    build(args.listing, closeup_override=override, pages_dir=args.pages_dir)
+    override = [int(x) for x in args.closeups.split(",")] if args.closeups else None
+    build(load_kit(args.slug), args.target, closeup_override=override, pages_dir=args.pages_dir)
 
 
 if __name__ == "__main__":
