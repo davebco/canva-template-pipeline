@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!-- Investor Kit · Listing 1 "We Buy Houses" Marketing Pack · Design C — PRINT 816x1056 (US Letter)
+     Pages: 1 Flyer (w/ tear-off tabs) · 2 Door hanger · 3 Yard/Bandit sign proof.
+     Brand tokens: navy #1B2A41 · gold #E8A33D · signal-red #C4442E · sign-yellow #FFD400 · Montserrat + Lato.
+     MANDATORY compliance on this file: "check your local sign codes" on the sign page; general
+     "not legal/financial/investment advice" disclaimer footer on every page.
+     Import-safe: solid fills only, NO css border (frames = stacked filled panels), no gradient/shadow/JS.
+     [BRACKETS] = illustrative placeholders the buyer replaces. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>We Buy Houses — Print Collateral (Letter) — Investor Listing 1C</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900&family=Lato:ital,wght@0,300;0,400;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#1B2A41; --gold:#E8A33D; --red:#C4442E; --ink:#14181F;
+    --paper:#FAF8F4; --slate:#5C6672; --sand:#ECE6DB; --rule:#D8D2C6;
+    --signyellow:#FFD400; --white:#FFFFFF; --black:#111111;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:#DED8CF; }
+  .page {
+    width:816px; height:1056px; position:relative; overflow:hidden;
+    margin:24px auto; background:var(--paper);
+    font-family:'Lato',sans-serif; color:var(--ink);
+  }
+  @media print { html, body { background:none; } .page { margin:0; page-break-after:always; } }
+  @page { size:8.5in 11in; margin:0; }
+
+  .eyebrow { font-family:'Montserrat',sans-serif; font-weight:700; letter-spacing:.26em; text-transform:uppercase; }
+  .huge { font-family:'Montserrat',sans-serif; font-weight:900; line-height:.98; letter-spacing:-.01em; text-transform:uppercase; }
+  .disc { position:absolute; left:56px; right:56px; bottom:20px; font-size:8.5px; line-height:1.5; color:var(--slate); text-align:center; }
+
+  /* flyer pain bullets */
+  .fpain { display:flex; align-items:center; gap:16px; margin-bottom:14px; }
+  .fpain .d { width:12px; height:12px; background:var(--gold); flex:none; }
+  .fpain .t { font-family:'Montserrat',sans-serif; font-weight:700; font-size:19px; color:var(--navy); }
+  .benefit { display:inline-block; font-family:'Montserrat',sans-serif; font-weight:800; font-size:13px; letter-spacing:.08em; text-transform:uppercase; padding:9px 16px; background:var(--navy); color:var(--white); margin:0 6px 8px 0; }
+
+  /* tear-off tabs */
+  .tabs { position:absolute; left:0; right:0; bottom:56px; display:flex; }
+  .tab { flex:1; height:150px; background:var(--sand); position:relative; }
+  .tab .tabslit { position:absolute; left:0; top:0; width:2px; height:150px; background:var(--paper); }
+  .tab .tabtext { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) rotate(90deg); white-space:nowrap;
+    font-family:'Montserrat',sans-serif; font-weight:800; font-size:14px; letter-spacing:.02em; color:var(--navy); }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 · FLYER ============ -->
+<section class="page" data-document-role="page" data-label="Flyer">
+  <!-- navy header band -->
+  <div style="position:absolute; top:0; left:0; right:0; height:300px; background:var(--navy);">
+    <div style="position:absolute; top:44px; left:56px; right:56px;">
+      <div class="eyebrow" style="font-size:13px; color:var(--gold);">Cash Home Buyers · [City, ST]</div>
+      <div class="huge" style="font-size:88px; color:var(--white); margin-top:16px;">We Buy Houses</div>
+      <div class="huge" style="font-size:54px; color:var(--gold); margin-top:8px;">— Cash · As-Is</div>
+    </div>
+  </div>
+
+  <div style="position:absolute; top:340px; left:56px; width:410px;">
+    <div class="eyebrow" style="font-size:12px; color:var(--red);">We Can Help If You're…</div>
+    <div style="margin-top:18px;">
+      <div class="fpain"><div class="d"></div><div class="t">Facing foreclosure</div></div>
+      <div class="fpain"><div class="d"></div><div class="t">Dealing with an inherited house</div></div>
+      <div class="fpain"><div class="d"></div><div class="t">A tired landlord with bad tenants</div></div>
+      <div class="fpain"><div class="d"></div><div class="t">Behind on payments or taxes</div></div>
+      <div class="fpain"><div class="d"></div><div class="t">Facing repairs you can't fund</div></div>
+      <div class="fpain"><div class="d"></div><div class="t">Relocating or going through divorce</div></div>
+    </div>
+  </div>
+
+  <!-- photo placeholder right -->
+  <div style="position:absolute; top:340px; right:56px; width:238px; height:230px; background:var(--sand); display:flex; align-items:center; justify-content:center;">
+    <span style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--slate); text-align:center;">House<br>Photo</span>
+  </div>
+
+  <!-- benefits: single full-width row -->
+  <div style="position:absolute; top:602px; left:56px; right:56px; text-align:center;">
+    <div class="benefit">Close in 7 days</div>
+    <div class="benefit">No fees</div>
+    <div class="benefit">No repairs</div>
+    <div class="benefit">No commissions</div>
+    <div class="benefit">Any condition</div>
+  </div>
+
+  <!-- CTA phone band -->
+  <div style="position:absolute; top:690px; left:56px; right:56px; height:120px; background:var(--gold); display:flex; align-items:center; justify-content:space-between; padding:0 40px;">
+    <div style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:18px; letter-spacing:.1em; text-transform:uppercase; color:var(--navy);">Call or text<br>for a free offer</div>
+    <div style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:46px; color:var(--navy);">[Tracked Phone]</div>
+  </div>
+  <div style="position:absolute; top:830px; left:56px; right:56px; text-align:center; font-family:'Lato',sans-serif; font-size:13px; color:var(--slate);">
+    [Company Name] · [Website] &nbsp;·&nbsp; We are a real estate investment company — not agents.
+  </div>
+
+  <!-- tear-off tabs -->
+  <div class="tabs">
+    <div class="tab"><div class="tabslit"></div><div class="tabtext">[Phone]</div></div>
+    <div class="tab"><div class="tabslit"></div><div class="tabtext">[Phone]</div></div>
+    <div class="tab"><div class="tabslit"></div><div class="tabtext">[Phone]</div></div>
+    <div class="tab"><div class="tabslit"></div><div class="tabtext">[Phone]</div></div>
+    <div class="tab"><div class="tabslit"></div><div class="tabtext">[Phone]</div></div>
+    <div class="tab"><div class="tabslit"></div><div class="tabtext">[Phone]</div></div>
+    <div class="tab"><div class="tabslit"></div><div class="tabtext">[Phone]</div></div>
+    <div class="tab"><div class="tabslit"></div><div class="tabtext">[Phone]</div></div>
+  </div>
+
+  <div class="disc">Editable marketing template — for general informational use only, not legal, financial, or investment advice. Adapt to your business and market before use. Check local rules before posting flyers on public or private property.</div>
+</section>
+
+<!-- ============ PAGE 2 · DOOR HANGER ============ -->
+<section class="page" data-document-role="page" data-label="Door Hanger">
+  <div style="position:absolute; top:40px; left:56px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:var(--slate);">Door Hanger · 4.25" × 11" · trim + die-cut</div>
+
+  <!-- hanger body (centered panel) -->
+  <div style="position:absolute; top:70px; left:204px; width:408px; height:940px; background:var(--navy);">
+    <!-- cutout circle + slit (paper-colored to read as a hole) -->
+    <div style="position:absolute; top:44px; left:154px; width:100px; height:100px; background:var(--paper); border-radius:50%;"></div>
+    <div style="position:absolute; top:8px; left:194px; width:20px; height:80px; background:var(--paper); border-radius:10px;"></div>
+
+    <div style="position:absolute; top:180px; left:36px; right:36px; text-align:center;">
+      <div class="eyebrow" style="font-size:11px; color:var(--gold);">Cash Home Buyers</div>
+      <div class="huge" style="font-size:56px; color:var(--white); margin-top:16px;">We Buy<br>Houses</div>
+      <div class="huge" style="font-size:34px; color:var(--gold); margin-top:8px;">Cash · As-Is</div>
+    </div>
+
+    <div style="position:absolute; top:470px; left:44px; right:44px;">
+      <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:16px; color:var(--white); line-height:2; text-align:center;">
+        No repairs<br>No fees or commissions<br>Close in as little as 7 days<br>Any condition, any situation
+      </div>
+    </div>
+
+    <div style="position:absolute; bottom:150px; left:36px; right:36px; text-align:center;">
+      <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold);">Free cash offer — call or text</div>
+      <div style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:34px; color:var(--white); margin-top:10px;">[Tracked Phone]</div>
+    </div>
+
+    <div style="position:absolute; bottom:60px; left:36px; right:36px; text-align:center; font-family:'Lato',sans-serif; font-size:12px; color:#C6CEDA;">
+      [Company Name] · [Website]
+    </div>
+  </div>
+
+  <div class="disc">Editable marketing template — for general informational use only, not legal, financial, or investment advice. Check local rules before distributing door hangers in your area.</div>
+</section>
+
+<!-- ============ PAGE 3 · YARD / BANDIT SIGN ============ -->
+<section class="page" data-document-role="page" data-label="Yard / Bandit Sign">
+  <div style="position:absolute; top:44px; left:56px; right:56px; text-align:center;">
+    <div class="eyebrow" style="font-size:12px; color:var(--slate);">Yard / Bandit Sign · 24" × 18" landscape · one headline + phone only</div>
+  </div>
+
+  <!-- sign artwork: yellow field, black block letters (classic high-visibility) -->
+  <div style="position:absolute; top:150px; left:48px; width:720px; height:540px; background:var(--signyellow); display:flex; flex-direction:column; align-items:center; justify-content:center;">
+    <div class="huge" style="font-size:112px; color:var(--black); text-align:center; line-height:.96;">We Buy<br>Houses</div>
+    <div class="huge" style="font-size:60px; color:var(--red); margin-top:18px;">Cash — As Is</div>
+    <div style="margin-top:34px; width:520px; height:8px; background:var(--black);"></div>
+    <div style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:82px; color:var(--black); margin-top:26px;">[Phone]</div>
+  </div>
+
+  <!-- mandatory compliance callout (does NOT print on the sign) -->
+  <div style="position:absolute; top:730px; left:48px; right:48px; background:var(--navy); padding:22px 28px;">
+    <div style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:14px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold);">⚠ Check your local sign codes first</div>
+    <div style="font-family:'Lato',sans-serif; font-size:12.5px; line-height:1.65; color:var(--white); margin-top:8px;">
+      Bandit / roadside signs are restricted or prohibited in many cities and HOAs and can carry fines. Confirm your local ordinances before posting. Keep signs to one bold headline and a tracked phone number only — no personal number, logo, or website.
+    </div>
+  </div>
+
+  <div class="disc">Editable marketing template — for general informational use only, not legal, financial, or investment advice. You are responsible for complying with all local sign, advertising, and posting regulations.</div>
+</section>
+
+</body>
+</html>
