@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!-- Investor Kit · Listing 2 Seller Direct-Mail & Lead-Gen · Design 2A — LETTER 816x1056
+     Pages: 1 Yellow letter · 2 Seller phone script · 3 Objection handling · 4 Driving-for-Dollars tracker.
+     Fonts: Montserrat (display) + Lato (body) + Caveat (handwriting for the yellow letter) — all free in Canva.
+     Import-safe: solid fills only, NO css border (rules/rows = filled divs). [BRACKETS] = buyer replaces. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Seller Direct Mail & Lead-Gen (Letter) — Investor Listing 2A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#1B2A41; --gold:#E8A33D; --red:#C4442E; --ink:#14181F;
+    --paper:#FAF8F4; --slate:#5C6672; --sand:#ECE6DB; --rule:#D8D2C6;
+    --letteryellow:#FBF4D8; --white:#FFFFFF;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:#DED8CF; }
+  .page {
+    width:816px; height:1056px; position:relative; overflow:hidden;
+    margin:24px auto; background:var(--paper);
+    font-family:'Lato',sans-serif; color:var(--ink);
+  }
+  @media print { html, body { background:none; } .page { margin:0; page-break-after:always; } }
+  @page { size:8.5in 11in; margin:0; }
+
+  .masthead { position:absolute; top:44px; left:64px; right:64px; display:flex; justify-content:space-between; align-items:baseline; }
+  .mh-left { font-family:'Montserrat',sans-serif; font-weight:800; font-size:9px; letter-spacing:.28em; text-transform:uppercase; color:var(--navy); }
+  .mh-right { font-family:'Montserrat',sans-serif; font-weight:700; font-size:9px; letter-spacing:.28em; text-transform:uppercase; color:var(--gold); }
+  .mh-rule { position:absolute; top:66px; left:64px; right:64px; height:1px; background:var(--rule); }
+  .eyebrow { font-family:'Montserrat',sans-serif; font-weight:700; font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); }
+  h1.disp { font-family:'Montserrat',sans-serif; font-weight:900; font-size:38px; line-height:1.05; text-transform:uppercase; color:var(--navy); }
+  .disc { position:absolute; left:64px; right:64px; bottom:26px; font-size:8.5px; line-height:1.5; color:var(--slate); text-align:center; }
+
+  /* ---- page 1 yellow letter ---- */
+  .yl { position:absolute; top:76px; left:96px; right:96px; bottom:92px; background:var(--letteryellow); padding:46px 60px; }
+  .yl .hand { font-family:'Caveat',cursive; color:#2b2b2b; }
+  .yl-body { font-family:'Caveat',cursive; font-size:25px; line-height:1.4; color:#2b2b2b; }
+  .yl-body p { margin-bottom:15px; }
+  .yl-note { position:absolute; top:20px; left:0; right:0; text-align:center; font-family:'Montserrat',sans-serif; font-weight:700; font-size:9px; letter-spacing:.24em; text-transform:uppercase; color:var(--slate); }
+
+  /* ---- script blocks ---- */
+  .sblock { margin-bottom:20px; max-width:660px; }
+  .stag { font-family:'Montserrat',sans-serif; font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:5px; }
+  .sline { font-size:13px; line-height:1.6; }
+  .sline .say { color:var(--ink); }
+  .sline .cue { color:var(--slate); font-style:italic; }
+  .pillar { display:flex; gap:16px; margin-bottom:14px; }
+  .pillar .pn { font-family:'Montserrat',sans-serif; font-weight:900; font-size:22px; color:var(--gold); width:30px; flex:none; line-height:1; }
+
+  /* ---- objection list ---- */
+  .obj { margin-bottom:15px; max-width:690px; }
+  .obj-q { font-family:'Montserrat',sans-serif; font-weight:800; font-size:12.5px; color:var(--navy); margin-bottom:3px; }
+  .obj-a { font-size:11.5px; line-height:1.5; color:var(--ink); }
+
+  /* ---- tracker table (border-free) ---- */
+  .trk { position:absolute; top:150px; left:44px; right:44px; }
+  .trow { display:flex; }
+  .trow > div { padding:9px 8px; font-size:10px; line-height:1.3; }
+  .thead { background:var(--navy); }
+  .thead > div { font-family:'Montserrat',sans-serif; font-weight:800; font-size:9.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--white); }
+  .tzebra { background:var(--sand); }
+  .trule { height:1px; background:var(--rule); }
+  .c-addr { flex:2.2; } .c-own { flex:1.6; } .c-cond { flex:1.8; } .c-date { flex:1; } .c-att { flex:.9; } .c-stat { flex:1.1; } .c-next { flex:1.6; }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 · YELLOW LETTER ============ -->
+<section class="page" data-document-role="page" data-label="Yellow Letter">
+  <div class="yl">
+    <div class="yl-note">Yellow Letter · handwritten-style · one page · personal, no hype</div>
+    <div class="hand" style="font-size:29px; margin-bottom:18px;">Hi [Owner Name],</div>
+    <div class="yl-body">
+      <p>My name is [Your Name], and I'm a local home buyer here in [City]. I'm reaching out because I'm interested in buying your property at [Property Address].</p>
+      <p>I know you may not be thinking about selling &mdash; and that's completely okay. But if you ever decided to, I'd genuinely like to buy your house directly from you. I pay cash, buy as-is (you don't fix or clean a thing), and can close on whatever date works best for you.</p>
+      <p>If that's worth a quick conversation, just call or text me anytime at [Tracked Phone]. No pressure and no obligation at all.</p>
+    </div>
+    <div class="hand" style="font-size:26px; margin-top:4px;">Warmly,<br>[Your Name]</div>
+    <div class="hand" style="font-size:22px; margin-top:16px; color:#7a5a1e;">P.S. &mdash; I can close in as little as 7 days, or wait as long as you need. Either way, I'd love to make you a fair, no-obligation cash offer.</div>
+  </div>
+  <div class="disc">Editable marketing template — for general informational use only, not legal, financial, or investment advice. Follow all applicable direct-mail, advertising, and do-not-contact rules in your area.</div>
+</section>
+
+<!-- ============ PAGE 2 · SELLER PHONE SCRIPT ============ -->
+<section class="page" data-document-role="page" data-label="Seller Phone Script">
+  <div class="masthead"><span class="mh-left">[Company Name] · Seller Outreach</span><span class="mh-right">Phone Script · 02</span></div>
+  <div class="mh-rule"></div>
+  <div style="position:absolute; top:96px; left:64px; right:64px;">
+    <div class="eyebrow">Talk Track</div>
+    <h1 class="disp">Motivated-seller<br>phone script</h1>
+    <div style="font-size:12px; color:var(--slate); font-style:italic; margin-top:10px;">Replace every [bracket]. Read it aloud once so it sounds like you — listen 70% of the time, never manufacture urgency.</div>
+  </div>
+  <div style="position:absolute; top:250px; left:64px; right:64px;">
+    <div class="sblock">
+      <div class="stag">Greeting</div>
+      <div class="sline"><span class="say">"Hi, is this [Seller Name]? This is [Your Name] with [Company Name] — I'm a local home buyer here in [City]. I know I'm calling a bit out of the blue, so I'll be quick. Did I catch you at an okay time?"</span></div>
+    </div>
+    <div class="sblock">
+      <div class="stag">Reason for the call</div>
+      <div class="sline"><span class="say">"I buy houses in [Neighborhood], and I came across your property at [Property Address]. Would you be open to a quick conversation about possibly selling it? No pressure either way."</span></div>
+    </div>
+    <div class="stag" style="margin-bottom:8px;">The four questions <span style="color:var(--slate); font-weight:400; text-transform:none; letter-spacing:0;">— ask, then go quiet and listen</span></div>
+    <div class="pillar"><div class="pn">1</div><div><div class="stag" style="color:var(--navy);">Condition</div><div class="sline">"How's the house holding up — anything a new owner would update, like roof, HVAC, kitchen, or foundation? Is anyone living in it?"</div></div></div>
+    <div class="pillar"><div class="pn">2</div><div><div class="stag" style="color:var(--navy);">Motivation <span style="color:var(--slate); font-weight:400; text-transform:none; letter-spacing:0;">(most important)</span></div><div class="sline">"So I understand what matters to you — what's got you thinking about selling?" <span class="cue">Then stay silent.</span></div></div></div>
+    <div class="pillar"><div class="pn">3</div><div><div class="stag" style="color:var(--navy);">Timeline</div><div class="sline">"If you did sell, what's your ideal timeline — next few weeks, a few months, or just testing the waters?"</div></div></div>
+    <div class="pillar"><div class="pn">4</div><div><div class="stag" style="color:var(--navy);">Price</div><div class="sline">"Do you have a number in mind — a price where you'd feel good letting it go?" <span class="cue">If deflected: "Totally fair — I'll get you a real number; I just like to hear where your head's at first."</span></div></div></div>
+    <div class="sblock" style="margin-top:8px;">
+      <div class="stag">Transition &amp; close</div>
+      <div class="sline"><span class="say">"Here's how I work: cash, as-is, no commissions, and I close on your timeline. In exchange, my offer usually comes in a bit under full retail — I want to be upfront so nothing's a surprise. Let me put together a no-obligation cash offer. Would [Day/Time] or [Day/Time] work better?"</span></div>
+    </div>
+  </div>
+  <div class="disc">Editable script template — for general informational use only, not legal, financial, or investment advice.</div>
+</section>
+
+<!-- ============ PAGE 3 · OBJECTION HANDLING ============ -->
+<section class="page" data-document-role="page" data-label="Objection Handling">
+  <div class="masthead"><span class="mh-left">[Company Name] · Seller Outreach</span><span class="mh-right">Objections · 03</span></div>
+  <div class="mh-rule"></div>
+  <div style="position:absolute; top:92px; left:64px; right:64px;">
+    <div class="eyebrow">Keep the Conversation Going</div>
+    <h1 class="disp" style="font-size:32px;">Objection handling</h1>
+  </div>
+  <div style="position:absolute; top:186px; left:64px; right:64px;">
+    <div class="obj"><div class="obj-q">"How did you get my info?"</div><div class="obj-a">"Fair question — your property is part of public record, and I look for homes in [Area] to buy directly from owners. If you'd rather I not reach out again, just say so and I'll take you off my list."</div></div>
+    <div class="obj"><div class="obj-q">"I'm not interested."</div><div class="obj-a">"I understand. Before I go — if I could pay cash, buy as-is, and close whenever's convenient, would it be worth a two-minute conversation? If not, I'll leave you be."</div></div>
+    <div class="obj"><div class="obj-q">"I want retail / Zillow price."</div><div class="obj-a">"Reasonable start. Zillow's a computer estimate, and retail usually means an agent, showings, repairs, and commissions. I offer a certain, as-is cash sale with no fees. If top dollar with the wait is the goal, a great agent may fit better — happy to be your backup."</div></div>
+    <div class="obj"><div class="obj-q">"Why so low?"</div><div class="obj-a">"I start from the fixed-up value, then subtract repairs, holding costs, and a modest margin, since I take the risk and the work. You trade a little on price for speed and certainty. If that trade isn't worth it, I respect that."</div></div>
+    <div class="obj"><div class="obj-q">"I need to think about it."</div><div class="obj-a">"Of course. So I can help while you do — what's the main thing you're weighing: price, timing, or something else? Alright if I check back in [a few days]?"</div></div>
+    <div class="obj"><div class="obj-q">"I'm talking to a realtor."</div><div class="obj-a">"Great — an agent can be right, especially if the house is in good shape. If it lists and doesn't move, I'm glad to be your fallback. Check back in a couple weeks?"</div></div>
+    <div class="obj"><div class="obj-q">"Is this a scam?"</div><div class="obj-a">"I get it — lots of noise out there. I'm [Your Name] with [Company Name] in [City]; look me up at [Website]. I'll meet in person and put everything in writing before you sign. I never ask for money upfront — money flows to you, not from you."</div></div>
+    <div class="obj"><div class="obj-q">"How fast can you close?"</div><div class="obj-a">"As fast as you'd like — I pay cash, no bank. Typically as little as [7–14] days through a local title company, or later if you need more time."</div></div>
+  </div>
+  <div class="disc">Editable script template — for general informational use only, not legal, financial, or investment advice.</div>
+</section>
+
+<!-- ============ PAGE 4 · DRIVING FOR DOLLARS TRACKER ============ -->
+<section class="page" data-document-role="page" data-label="Driving-for-Dollars Tracker">
+  <div class="masthead"><span class="mh-left">[Company Name] · Lead Gen</span><span class="mh-right">Driving for Dollars · 04</span></div>
+  <div class="mh-rule"></div>
+  <div style="position:absolute; top:92px; left:44px; right:44px;">
+    <div class="eyebrow" style="margin-left:20px;">Lead Tracker</div>
+    <h1 class="disp" style="font-size:30px; margin-left:20px;">Driving for Dollars</h1>
+  </div>
+  <div class="trk">
+    <div class="trow thead">
+      <div class="c-addr">Property Address</div><div class="c-own">Owner</div><div class="c-cond">Condition Notes</div><div class="c-date">Date Driven</div><div class="c-att">Attempts</div><div class="c-stat">Status</div><div class="c-next">Next Action</div>
+    </div>
+    <!-- 14 fillable rows -->
+    <div class="trow"><div class="c-addr">&nbsp;</div><div class="c-own"></div><div class="c-cond"></div><div class="c-date"></div><div class="c-att"></div><div class="c-stat"></div><div class="c-next"></div></div>
+    <div class="trule"></div>
+    <div class="trow tzebra"><div class="c-addr">&nbsp;</div><div class="c-own"></div><div class="c-cond"></div><div class="c-date"></div><div class="c-att"></div><div class="c-stat"></div><div class="c-next"></div></div>
+    <div class="trule"></div>
+    <div class="trow"><div class="c-addr">&nbsp;</div><div class="c-own"></div><div class="c-cond"></div><div class="c-date"></div><div class="c-att"></div><div class="c-stat"></div><div class="c-next"></div></div>
+    <div class="trule"></div>
+    <div class="trow tzebra"><div class="c-addr">&nbsp;</div><div class="c-own"></div><div class="c-cond"></div><div class="c-date"></div><div class="c-att"></div><div class="c-stat"></div><div class="c-next"></div></div>
+    <div class="trule"></div>
+    <div class="trow"><div class="c-addr">&nbsp;</div><div class="c-own"></div><div class="c-cond"></div><div class="c-date"></div><div class="c-att"></div><div class="c-stat"></div><div class="c-next"></div></div>
+    <div class="trule"></div>
+    <div class="trow tzebra"><div class="c-addr">&nbsp;</div><div class="c-own"></div><div class="c-cond"></div><div class="c-date"></div><div class="c-att"></div><div class="c-stat"></div><div class="c-next"></div></div>
+    <div class="trule"></div>
+    <div class="trow"><div class="c-addr">&nbsp;</div><div class="c-own"></div><div class="c-cond"></div><div class="c-date"></div><div class="c-att"></div><div class="c-stat"></div><div class="c-next"></div></div>
+    <div class="trule"></div>
+    <div class="trow tzebra"><div class="c-addr">&nbsp;</div><div class="c-own"></div><div class="c-cond"></div><div class="c-date"></div><div class="c-att"></div><div class="c-stat"></div><div class="c-next"></div></div>
+    <div class="trule"></div>
+    <div class="trow"><div class="c-addr">&nbsp;</div><div class="c-own"></div><div class="c-cond"></div><div class="c-date"></div><div class="c-att"></div><div class="c-stat"></div><div class="c-next"></div></div>
+    <div class="trule"></div>
+    <div class="trow tzebra"><div class="c-addr">&nbsp;</div><div class="c-own"></div><div class="c-cond"></div><div class="c-date"></div><div class="c-att"></div><div class="c-stat"></div><div class="c-next"></div></div>
+    <div class="trule"></div>
+    <div class="trow"><div class="c-addr">&nbsp;</div><div class="c-own"></div><div class="c-cond"></div><div class="c-date"></div><div class="c-att"></div><div class="c-stat"></div><div class="c-next"></div></div>
+    <div class="trule"></div>
+    <div class="trow tzebra"><div class="c-addr">&nbsp;</div><div class="c-own"></div><div class="c-cond"></div><div class="c-date"></div><div class="c-att"></div><div class="c-stat"></div><div class="c-next"></div></div>
+    <div class="trule"></div>
+    <div class="trow"><div class="c-addr">&nbsp;</div><div class="c-own"></div><div class="c-cond"></div><div class="c-date"></div><div class="c-att"></div><div class="c-stat"></div><div class="c-next"></div></div>
+    <div class="trule"></div>
+    <div class="trow tzebra"><div class="c-addr">&nbsp;</div><div class="c-own"></div><div class="c-cond"></div><div class="c-date"></div><div class="c-att"></div><div class="c-stat"></div><div class="c-next"></div></div>
+  </div>
+  <div class="disc">Editable tracker template — for general informational use only. Follow all applicable privacy and contact regulations when collecting owner information.</div>
+</section>
+
+</body>
+</html>
